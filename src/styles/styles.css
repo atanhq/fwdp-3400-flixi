@@ -1,0 +1,15 @@
+/* GLOBAL CSS VARIABLES */
+:root {
+    --dark-background: #232323; /* navigation/header, footer */
+    --light-background: #3B3A3A; /* main background colour */
+    --accent: #18B7E8; /* accent, tags, buttons, icons, links */
+    --font-color: #ffffff; /* main text colour, headings */
+    --font-family: 'Figtree', sans-serif; /* main font family */
+    --fav-button: #FF0000; /* favourite button red */
+}
+
+body {
+    background-color: var(--light-background);
+    font-family: var(--font-family);
+    color: var(--font-color);
+}
