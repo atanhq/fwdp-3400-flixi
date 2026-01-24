@@ -6,10 +6,41 @@
     --font-color: #ffffff; /* main text colour, headings */
     --font-family: 'Figtree', sans-serif; /* main font family */
     --fav-button: #FF0000; /* favourite button red */
+    --section-spacing: 3rem;
+
+    --desktop-h1: 4rem;
+    --tablet-h1: 3rem;
+    --mobile-h1: 2rem;
+
+    --desktop-h2: 3rem;
+    --tablet-h2: 2rem;
+    --mobile-h2: 1.5rem;
 }
 
 body {
     background-color: var(--light-background);
     font-family: var(--font-family);
     color: var(--font-color);
+    line-height: 1.2rem;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+/* tablet */
+@media (min-width: 48em) {
+
+
+}
+
+/* desktop */
+@media (min-width: 75em) {
+
+
 }
