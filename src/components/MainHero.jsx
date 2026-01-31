@@ -1,0 +1,1 @@
+// hero image carousel, the movie info
