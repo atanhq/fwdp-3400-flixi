@@ -7,6 +7,7 @@ import '../styles/detailed.css';
 import '../styles/base.css';
 
 import rating from '../assets/rating.svg';
+import play from '../assets/play.svg';
 
 function PageDetailed() {
 
@@ -16,11 +17,13 @@ function PageDetailed() {
 
     return (
         <main>
+            {/* ----------------- HERO / POSTER ----------------- */}
             <section className="detailed-hero">
                 <DetailedHero />
             </section>
 
         <div className="wrapper">
+            {/* ----------------- MOVIE INFO ----------------- */}
 		    <section className="detailed-info">
 
                 <h1>Movie Title Here</h1>
@@ -34,10 +37,27 @@ function PageDetailed() {
 
                 <p className="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iste nihil, perspiciatis nostrum, neque veniam, odit officia natus pariatur culpa autem ipsum impedit sint maiores quibusdam quae? Qui libero itaque nihil animi amet dolore natus! Quidem odit iste eius quia assumenda autem officiis nobis, perspiciatis eos architecto? Accusantium, cumque molestiae.</p>
 
+                <div className="genre-tags">
+                    <a href="">Psychological</a>
+                    <a href="">Action</a>
+                    <a href="">Thriller</a>
+                    <a href="">Adventure</a>
+                    <a href="">Epic</a>
+                    <a href="">Horror</a>
+                </div>
+
             </section>
 
 		    <section className="detailed-trailer">
-                <p>trailer here</p>
+                <h2>Trailer</h2>
+                <div className="play-trailer-container">
+                    
+                    <img src="https://placehold.co/600x300" className="trailer"/>
+
+                    <div className="play-svg-container">
+                        <img src={play} className="play-svg"/>
+                    </div>
+                </div>
             </section>
         </div>
 
