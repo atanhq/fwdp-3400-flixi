@@ -13,13 +13,13 @@
 .poster-container {
     width: 65%;
     margin: -50% auto 0 auto;
-}
 
-.detailed-hero-poster {
-    position: relative;
-    width: 100%;
-    z-index: 2;
-    outline: 2px solid #000;
+    .detailed-hero-poster {
+        position: relative;
+        width: 100%;
+        z-index: 2;
+        box-shadow: 0 0 20px var(--dark-background);
+    }
 }
 
 
@@ -42,7 +42,6 @@
         letter-spacing: 1.1px;
         font-size: 0.9rem;
     }
-   
 }
 
 .rating-date {
@@ -79,7 +78,6 @@
         text-transform: uppercase;
         font-size: 0.9rem;
     }
-    
 }
 
 
@@ -93,20 +91,19 @@
 
 .play-trailer-container {
     position: relative;
-}
 
-.trailer {
-    width: 100%;
-    display: block;
-    box-shadow: 0 0 20px #000;
-}
+    .trailer {
+        width: 100%;
+        display: block;
+        box-shadow: 0 0 20px var(--dark-background);
+    }
 
-.play-svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 3rem;
-    z-index: 2;
-    
+    .play-svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 3rem;
+        z-index: 2;
+    }
 }

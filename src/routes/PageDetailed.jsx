@@ -17,7 +17,7 @@ function PageDetailed() {
 
     return (
         <main>
-            {/* ----------------- HERO / POSTER ----------------- */}
+            {/* ----------------- HERO POSTER ----------------- */}
             <section className="detailed-hero">
                 <DetailedHero />
             </section>
@@ -48,6 +48,7 @@ function PageDetailed() {
 
             </section>
 
+            {/* ------------------- TRAILER ------------------- */}
 		    <section className="detailed-trailer">
                 <h2>Trailer</h2>
                 <div className="play-trailer-container">
