@@ -1,0 +1,68 @@
+/* ----------- DETAILED HERO IMAGES ----------- */
+
+/* .detailed-hero {
+    position: relative;
+} */
+
+.detailed-hero-container {
+    position: relative;
+    width: 100vw;
+}
+
+.detailed-hero-backdrop {
+    width: 100%;
+    display: block;
+}
+
+.poster-container {
+    width: 65%;
+    margin: -50% auto 0 auto;
+}
+
+.detailed-hero-poster {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    outline: 2px solid red;
+}
+
+
+/* ----------- DETAILED MOVIE INFO ----------- */
+
+.wrapper {
+    width: 100%;
+    height: auto;
+}
+
+.detailed-info {
+    padding: 1rem;
+
+    h1 {
+        text-align: center;
+    }
+
+    .summary {
+        line-height: 1.25rem;
+        letter-spacing: 1.1px;
+        font-size: 0.9rem;
+    }
+   
+}
+
+.rating-date {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .rating-svg {
+        max-width: 1.5rem;
+    }
+
+    .date {
+        color: var(--accent);
+        font-weight: 700;
+    }
+}
+
+
+/* ----------- DETAILED MOVIE TRAILER----------- */
