@@ -1,26 +1,40 @@
 /* ----------- DETAILED HERO IMAGES ----------- */
 
-.detailed-hero-container {
+.detailed-container {
     position: relative;
     width: 100vw;
+    height: 30rem;
 }
 
-.detailed-hero-backdrop {
-    width: 100%;
-    display: block;
-}
+.detailed-hero {
+    width: 100vw;
+    max-height: 15rem;
+    background-color: aliceblue;
 
-.poster-container {
-    width: 65%;
-    margin: -50% auto 0 auto;
-
-    .detailed-hero-poster {
-        position: relative;
+    /* https://stackoverflow.com/questions/44673676/how-to-add-color-overlay-on-an-image */
+    &:before {
+        content: "";
+        position: absolute;
+        height: 15rem;
         width: 100%;
-        z-index: 2;
-        box-shadow: 0 0 20px var(--dark-background);
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
     }
 }
+
+.detailed-poster {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    aspect-ratio: 2 / 3;
+    background-color: aliceblue;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    box-shadow: 0 0 20px var(--dark-background)
+}
+
 
 
 /* ----------- DETAILED MOVIE INFO ----------- */
@@ -32,6 +46,7 @@
 
 .detailed-info {
     padding: 1rem;
+    margin-top: 10rem;
 
     h1 {
         text-align: center;
@@ -106,4 +121,85 @@
         max-width: 3rem;
         z-index: 2;
     }
+}
+
+
+
+/* tablet */
+@media (min-width: 48em) {
+
+    .detailed-container {
+        height: 40rem;
+    }
+
+    .detailed-hero {
+        max-height: 20rem;
+
+        &:before {
+            height: 20rem;
+        }
+    }
+
+    .detailed-poster {
+        top: 30%;
+        left: 20%;
+    }
+
+    .detailed-info {
+        width: 65%;
+        max-width: 50rem;
+        position: absolute;
+        top: 8rem;
+        left: 15%;
+        margin-left: 10rem;
+        z-index: 99;
+
+        h1 {
+            text-align: left;
+        }
+    }
+
+    .rating-date {
+        justify-content: left;
+        margin-bottom: 3rem;
+    }
+
+    /* https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css */
+    .summary {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+                line-clamp: 3; 
+        -webkit-box-orient: vertical;
+    }
+
+    .genre-tags {
+        justify-content: left;
+    }
+
+    .detailed-trailer {
+        margin-top: 15rem;
+        width: 60vw;
+        max-width: 40rem;
+    }
+
+}
+
+/* desktop */
+@media (min-width: 75em) {
+
+    .detailed-info {
+        max-width: 75rem;
+        left: 18%;
+    }
+
+    .genre-tags a {
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background-color: var(--light-background);
+            outline: 2px solid var(--accent);
+        }
+    }
+
 }
