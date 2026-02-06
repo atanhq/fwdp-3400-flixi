@@ -1,0 +1,48 @@
+.page-about {
+  min-height: 100vh;
+  background-color: var(--light-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-container {
+  max-width: 37.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.about-heading {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.flixi-icon {
+  width: 18rem;
+  height: auto;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.about-description {
+  background-color: var(--dark-background);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.about-description p {
+  line-height: 1.6;
+}
+
+@media (min-width: 75em) {
+  .page-about {
+    padding: 8rem 2rem 2rem;
+  }
+}
