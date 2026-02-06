@@ -1,12 +1,14 @@
-import "../styles/footer.css";
+import { getYear } from '../utilities/getDates';
 
-const Footer = () => {
-  return (
-    <footer>
-      <p>&copy; 2026 Flixi</p>
-      <p>For educational use only</p>
+const Footer = ({ copyright, author }) => (
+	<footer>
+        <p>&copy; {copyright} {author}</p>
     </footer>
-  );
-};
+);
+
+Footer.defaultProps = {
+    author: 'Flixi',
+    copyright: getYear()
+}
 
 export default Footer;

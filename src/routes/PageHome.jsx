@@ -1,11 +1,20 @@
-import React from 'react'
+import { useEffect } from 'react';
+import { appTitle } from '../globals/globalVariables';
 
-const PageHome = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+function PageHome() {
+
+	useEffect(() => {
+		document.title = `${appTitle} - Home`;
+	}, []);
+
+    return (
+        <main>
+		    <section>
+                <p>home page here</p>
+            </section>
+	    </main>
+    );
+	
 }
 
-export default PageHome
+export default PageHome;
