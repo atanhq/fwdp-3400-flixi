@@ -1,20 +1,26 @@
-import { useEffect } from 'react';
-import { appTitle } from '../globals/globalVariables';
+import "../styles/favourites.css";
+import sadFlixiIcon from "../assets/icons/sad-flixi.svg";
 
-function PageFavourites() {
+const PageFavourites = () => {
+  return (
+    <div className="page-favourites">
+      <div className="favourites-container">
+        <img
+          className="sad-flixi-icon"
+          src={sadFlixiIcon}
+          alt="Sad Flixi mascot"
+        />
 
-	useEffect(() => {
-		document.title = `${appTitle} - Favourites`;
-	}, []);
+        <h1 className="favourites-heading">Oh no!</h1>
 
-    return (
-        <main>
-		    <section>
-                <p>favourites page here</p>
-            </section>
-	    </main>
-    );
-	
-}
+        <p className="favourites-message">You don't have any favorites.</p>
+
+        <div className="add-favourite-box">
+          <span className="plus-icon">+</span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default PageFavourites;

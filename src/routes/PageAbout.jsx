@@ -1,20 +1,27 @@
-import { useEffect } from 'react';
-import { appTitle } from '../globals/globalVariables';
+import "../styles/about.css";
+import flixiIcon from "../assets/icons/sad-flixi.svg";
 
-function PageAbout() {
+const PageAbout = () => {
+  return (
+    <div className="page-about">
+      <div className="about-container">
+        <h1 className="about-heading">
+          About <span className="accent">Flixi</span>
+        </h1>
 
-	useEffect(() => {
-		document.title = `${appTitle} - About`;
-	}, []);
+        <img className="flixi-icon" src={flixiIcon} alt="Flixi sad mascot" />
 
-    return (
-        <main>
-		    <section>
-                <p>about page here</p>
-            </section>
-	    </main>
-    );
-	
-}
+        <div className="about-description">
+          <p>
+            Flixi is our loveable TV robot that loves movies! It travels far and
+            wide in search of films and compiles them into a database to share
+            with us humans. Users can log favorite movies, watch trailers, and
+            view ratings.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default PageAbout;

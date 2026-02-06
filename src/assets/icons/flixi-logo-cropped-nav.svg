@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 250">
+  <!-- Generator: Adobe Illustrator 29.8.4, SVG Export Plug-In . SVG Version: 2.1.1 Build 6)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #18b7e8;
+        stroke-miterlimit: 10;
+        stroke-width: 1.22px;
+      }
+
+      .st1, .st2 {
+        isolation: isolate;
+      }
+
+      .st3 {
+        fill: #18b7e8;
+      }
+
+      .st2 {
+        fill: #fff;
+        font-family: Arial-BoldMT, Arial;
+        font-size: 148.66px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2">
+    <g id="FW_2">
+      <g class="st1">
+        <g class="st1">
+          <g class="st1">
+            <text class="st2" transform="translate(310.77 221.1) scale(1.43 1)"><tspan x="0" y="0">X</tspan></text>
+          </g>
+        </g>
+      </g>
+      <polygon class="st3" points="15.64 90.5 107.5 90.5 107.5 125.8 49.01 125.8 49.01 161.09 107.5 161.09 107.5 192.8 49.01 192.8 49.01 241.26 15.64 241.26 15.64 90.5"/>
+      <polygon class="st3" points="140.29 91.23 141.14 240.76 232.98 240.23 232.78 204.97 174.32 205.27 173.67 91.04 140.29 91.23"/>
+      <rect class="st0" x="265.79" y="91.04" width="229.96" height="149.73"/>
+      <rect class="st3" x="462.35" y="90.5" width="33.38" height="150.76"/>
+      <rect class="st3" x="265.79" y="90.5" width="33.38" height="150.76"/>
+      <path class="st3" d="M284.43,7.41l57.27,66.97c1.07,1.26.93,3.15-.33,4.23h0c-1.26,1.07-3.15.93-4.23-.33l-57.27-66.97c-1.07-1.26-.93-3.15.33-4.23h0c1.26-1.07,3.15-.93,4.23.33Z"/>
+      <path class="st3" d="M426.5,74.29L483.77,7.32c1.07-1.26,2.98-1.4,4.23-.33h0c1.26,1.07,1.4,2.98.33,4.23l-57.27,66.97c-1.07,1.26-2.98,1.4-4.23.33h0c-1.26-1.07-1.4-2.98-.33-4.23h0Z"/>
+    </g>
+  </g>
+</svg>

@@ -18,12 +18,12 @@ import PageNotFound from './routes/PageNotFound';
 // import FavsProvider from '../context/FavsContext';
 import { appTitle, appAuthor } from './globals/globalVariables';
 
+// import FavsProvider from '../context/FavsContext';
+import { appTitle, appAuthor } from "./globals/globalVariables";
 
 // ------------------------------------------------------------------------------ //
 
-
 function App() {
-
   return (
     <>
        <BrowserRouter>
@@ -49,7 +49,7 @@ function App() {
 
         </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
