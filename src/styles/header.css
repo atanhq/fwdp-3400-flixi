@@ -1,0 +1,24 @@
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--dark-background);
+  padding: 1rem 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo {
+  height: 3.125rem;
+  width: auto;
+  display: block;
+}
+
+@media (min-width: 75em) {
+  .mobile-header {
+    display: none;
+  }
+}

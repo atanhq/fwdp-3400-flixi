@@ -1,0 +1,53 @@
+.search h1 {
+    text-align: center;
+}
+
+.search-result {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 1rem;
+    justify-items: center;
+    justify-content: center;
+}
+
+.view-more {
+    text-align: center;
+
+    /* same as detailed.css */
+    a {
+        color: var(--font-color);
+        background-color: var(--accent);
+        padding: 0.3rem 0.9rem;
+        border-radius: 1rem;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 48em) {
+
+    .search-result {
+        grid-template-columns: repeat(3, 200px);
+    }
+
+}
+
+@media (min-width: 75em) {
+
+    .search-result {
+        grid-template-columns: repeat(4, 200px);
+    }
+
+    .view-more a {
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background-color: var(--light-background);
+            outline: 2px solid var(--accent);
+        }
+    }
+
+}

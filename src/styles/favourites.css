@@ -1,0 +1,65 @@
+.page-favourites {
+  min-height: 100vh;
+  background-color: var(--light-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favourites-container {
+  max-width: 37.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.sad-flixi-icon {
+  width: 12rem;
+  height: auto;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.favourites-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.favourites-message {
+  font-size: 1.125rem;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.add-favourite-box {
+  width: 100%;
+  max-width: 18.75rem;
+  height: 12.5rem;
+  margin: 0 auto;
+  border: 2px dashed white;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-favourite-box:hover {
+  background-color: rgba(0, 188, 212, 0.1);
+  border-color: white;
+}
+
+.plus-icon {
+  font-size: 4rem;
+  color: white;
+  font-weight: 300;
+  line-height: 1;
+}
+
+@media (min-width: 75em) {
+  .page-favourites {
+    padding: 8rem 2rem 2rem;
+  }
+}
