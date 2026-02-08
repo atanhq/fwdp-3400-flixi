@@ -1,104 +1,41 @@
-// hero image carousel, the movie info
-
+import heroImage from '../assets/400.svg';
 
 function MainHero() {
+  const heroMovies = [
+    { id: 1, title: "Movie Title 1", image: heroImage },
+    { id: 2, title: "Movie Title 2", image: heroImage },
+    { id: 3, title: "Movie Title 3", image: heroImage },
+    { id: 4, title: "Movie Title 4", image: heroImage },
+    { id: 5, title: "Movie Title 5", image: heroImage },
+  ];
+
   return (
     <section className="hero-carousel">
       <div className="carousel-container">
-        <div className="hero-slide active">
-          <div className="hero-background" style={{backgroundImage: 'url(/images/400.svg)'}}>
-            <div className="hero-overlay">
-              <h1 className="hero-title">Movie Title 1</h1>
-              <button className="hero-button">More</button>
-            </div>
-            
-
-            <div className="carousel-dots"> 
-              <span className="dot active"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-slide">
-          <div className="hero-background" style={{backgroundImage: 'url(/images/400.svg)'}}>
-            <div className="hero-overlay">
-              <h1 className="hero-title">Movie Title 2</h1>
-              <button className="hero-button">More</button>
-            </div>
-            
-
-            <div className="carousel-dots">
-              <span className="dot"></span>
-              <span className="dot active"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
+        {heroMovies.map((movie, index) => (
+          <div key={movie.id} className={`hero-slide ${index === 0 ? 'active' : ''}`}>
+            <div className="hero-background">
+              <img src={movie.image} alt={movie.title} className="hero-image" />
+              
+              <div className="hero-overlay">
+                <h1 className="hero-title">{movie.title}</h1>
+                <button className="hero-button">More</button>
+              </div>
+              
+              <div className="carousel-dots">
+                {heroMovies.map((_, dotIndex) => (
+                  <span 
+                    key={dotIndex} 
+                    className={`dot ${dotIndex === index ? 'active' : ''}`}
+                  ></span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-
-
-        <div className="hero-slide">
-          <div className="hero-background" style={{backgroundImage: 'url(/images/400.svg)'}}>
-            <div className="hero-overlay">
-              <h1 className="hero-title">Movie Title 3</h1>
-              <button className="hero-button">More</button>
-            </div>
-            
-
-            <div className="carousel-dots">
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot active"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="hero-slide">
-          <div className="hero-background" style={{backgroundImage: 'url(/images/400.svg)'}}>
-            <div className="hero-overlay">
-              <h1 className="hero-title">Movie Title 4</h1>
-              <button className="hero-button">More</button>
-            </div>
-            
- 
-            <div className="carousel-dots">
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot active"></span>
-              <span className="dot"></span>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-slide">
-          <div className="hero-background" style={{backgroundImage: 'url(/images/400.svg)'}}>
-            <div className="hero-overlay">
-              <h1 className="hero-title">Movie Title 5</h1>
-              <button className="hero-button">More</button>
-            </div>
-            
-  
-            <div className="carousel-dots">
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot active"></span>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
-  )
+  );
 }
 
-export default MainHero
+export default MainHero;
