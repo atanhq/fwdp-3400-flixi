@@ -1,14 +1,16 @@
+
 import MainHero from '../components/MainHero';
+import placeholderImage from '../assets/200x300.svg';
 
 function PageHome() {
 
   const movies = [
-    { id: 1, title: "Movie Title 1", image: "/images/200x300.svg" },
-    { id: 2, title: "Movie Title 2", image: "/images/200x300.svg" },
-    { id: 3, title: "Movie Title 3", image: "/images/200x300.svg" },
-    { id: 4, title: "Movie Title 4", image: "/images/200x300.svg" },
-    { id: 5, title: "Movie Title 5", image: "/images/200x300.svg" },
-    { id: 6, title: "Movie Title 6", image: "/images/200x300.svg" },
+    { id: 1, title: "Movie Title 1", image: placeholderImage },
+    { id: 2, title: "Movie Title 2", image: placeholderImage },
+    { id: 3, title: "Movie Title 3", image: placeholderImage },
+    { id: 4, title: "Movie Title 4", image: placeholderImage },
+    { id: 5, title: "Movie Title 5", image: placeholderImage },
+    { id: 6, title: "Movie Title 6", image: placeholderImage },
   ];
 
   return (
@@ -23,7 +25,9 @@ function PageHome() {
         </select>
       </div>
 
-          <div className="movies-container"> 
+      {/* Mobile 3d carousel ref from codepen */}
+
+      <div className="movies-container"> 
       {movies.map(movie => (
         <div key={movie.id} className="movie-card">
           <img src={movie.image} alt={movie.title} />
@@ -31,6 +35,18 @@ function PageHome() {
         </div>
       ))}
     </div>
+
+  {/* grid for desktop and tablet */}
+   <div className="movies-grid"> 
+      {movies.map(movie => (
+        <div key={movie.id} className="grid-card">
+          <img src={movie.image} alt={movie.title} />
+          <h3>{movie.title}</h3>
+        </div>
+      ))}
+    </div>
+      
+
     </>
   )
 }

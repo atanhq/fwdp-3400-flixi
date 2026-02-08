@@ -1,5 +1,5 @@
 // hero image carousel, the movie info
-// hero image carousel, the movie info
+
 
 function MainHero() {
   return (
