@@ -133,6 +133,10 @@
   font-weight: 700;
 }
 
+.filter-pills{
+  display: none;
+}
+
 /*from code pen*/
 /*MOBILE carousel*/
 .movies-container {
@@ -250,6 +254,35 @@
   
   
 }
+/*Filter Pills*/
+@media (min-width: 48em){
+  .filter-container{
+    display: none;
+  }
+    .filter-pills {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .pill-button {
+    background-color: var(--dark-background);
+    color: var(--font-color);
+    border: 2px solid var(--accent);
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    border-radius: 2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .pill-button.active {
+    background-color: var(--accent);
+  }
+}
 
 
 
@@ -329,8 +362,6 @@
     margin-left: 5rem;
     margin-bottom: 10rem;
     
-    
-
   }
 
 
