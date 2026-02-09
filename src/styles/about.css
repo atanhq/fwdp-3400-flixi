@@ -40,9 +40,3 @@
 .about-description p {
   line-height: 1.6;
 }
-
-@media (min-width: 75em) {
-  .page-about {
-    padding: 8rem 2rem 2rem;
-  }
-}
