@@ -14,15 +14,16 @@ function MainHero() {
       <div className="carousel-container">
         {heroMovies.map((movie, index) => (
           <div key={movie.id} className={`hero-slide ${index === 0 ? 'active' : ''}`}>
-            <div className="hero-background">
               <img src={movie.image} alt={movie.title} className="hero-image" />
-              
-              <div className="hero-overlay">
+
+               <div className="hero-wrapper">
+              <div className="hero-title-background">
                 <h1 className="hero-title">{movie.title}</h1>
+                <p className="hero-description">Short movie description! This is a cool Movie!</p>
                 <button className="hero-button">More</button>
               </div>
-              
-              <div className="carousel-dots">
+            </div>
+               <div className="carousel-dots">
                 {heroMovies.map((_, dotIndex) => (
                   <span 
                     key={dotIndex} 
@@ -30,7 +31,6 @@ function MainHero() {
                   ></span>
                 ))}
               </div>
-            </div>
           </div>
         ))}
       </div>

@@ -13,6 +13,12 @@ function PageHome() {
     { id: 4, title: "Movie Title 4", image: placeholderImage },
     { id: 5, title: "Movie Title 5", image: placeholderImage },
     { id: 6, title: "Movie Title 6", image: placeholderImage },
+    { id: 1, title: "Movie Title 1", image: placeholderImage },
+    { id: 2, title: "Movie Title 2", image: placeholderImage },
+    { id: 3, title: "Movie Title 3", image: placeholderImage },
+    { id: 4, title: "Movie Title 4", image: placeholderImage },
+    { id: 5, title: "Movie Title 5", image: placeholderImage },
+    { id: 6, title: "Movie Title 6", image: placeholderImage },
   ];
 
   return (
