@@ -1,9 +1,12 @@
 // includes fav button
 // movie card includes ratings, description, date, title
 
-function Movie() {
+function Movie({movie, cardType}) {
   return (
-    <p>movie here</p>
+    <div className={cardType}>
+      <img src={movie.image} alt={movie.title} />
+     
+    </div>
   );
 }
 

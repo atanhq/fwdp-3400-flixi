@@ -1,7 +1,9 @@
+/*MOBILE STYLES*/
 
 .hero-carousel {
   width: 100%;
   margin: 0;
+  margin-top: 5rem;
 }
 
 .carousel-container {
@@ -13,6 +15,7 @@
 .hero-slide {
   display: none;
   width: 100%;
+  position: relative;
 }
 
 .hero-slide.active {
@@ -20,23 +23,32 @@
 }
 
 
-.hero-background {
+.hero-image {
   width: 100%;
   height: 400px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  object-fit: cover;
+  display: block;
 }
 
-/* Overlay with fade */
-.hero-overlay {
-  background: rgba(100, 10, 10, 0.8);
+
+.hero-wrapper{
+  position:absolute;
+  bottom: 5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end;
+  align-items: center;
+  z-index: 10;
+ 
+}
+
+.hero-title-background {
+  background: rgba(82, 82, 82, 0.8);
   padding: 1rem;
-  margin-right: 2rem;
-  margin-left: 2rem;
+  width: 80%;
+  z-index: 10;
 }
 
 /* Movie title */
@@ -44,6 +56,9 @@
   font-size: var(--mobile-h1);
   margin: 0 0 1rem 0;
   color: var(--font-color);
+}
+.hero-description{
+  display: none;
 }
 
 /* More button */
@@ -57,33 +72,43 @@
   cursor: pointer;
   border-radius: 0.5rem;
   text-transform: uppercase;
+  display:inline-block;
+  text-decoration: none;
+  width: fit-content;
 }
 
 /* Dots navigation */
 .carousel-dots {
+  position: absolute;
+  bottom: 0.5rem; 
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
   text-align: center;
   padding: 0.5rem 0;
   background-color: transparent;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 5px;
+  height: 0.938rem;
+  width: 0.938rem;
+  margin: 0 0.315rem;
   background-color: transparent;
-  border: 0.125rem solid rgb(255, 0, 0);
+  border: 0.125rem solid rgb(255, 255, 255);
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
 }
 
 .dot.active {
-  background-color: var( --font-color);
+  background-color:#fff;
   border: 0.125rem solid white;
 }
 
-/* Filter Section */
+/* Filter Section FOR MOBILE */
 .filter-container {
   display: flex;
   align-items: center;
@@ -111,7 +136,12 @@
   font-weight: 700;
 }
 
+.filter-pills{
+  display: none;
+}
 
+/*from code pen*/
+/*MOBILE carousel*/
 .movies-container {
   margin: 2rem auto;
   width: 100%;
@@ -120,8 +150,6 @@
   position: relative;
   perspective: 800px;
 }
-
-/*from code pen*/
 
 .carousel {
   height: 100%;
@@ -137,7 +165,6 @@
   background-color: var(--dark-background);
   width: 150px;
   height: 225px;
-  border-radius: 0.5rem;
   overflow: hidden;
   left: 50%;
   top: 50%;
@@ -181,6 +208,176 @@
   object-fit: cover;
 }
 
-.movie-card h3 {
-  display:none;
+/* hero carousel for tablet and desktop */
+@media (min-width: 48em){
+  .hero-carousel {
+  width: 100%;
+  margin: 0;
+
 }
+
+  .hero-wrapper{
+    align-items: flex-start;
+    
+  }
+
+   .hero-title {
+    margin-bottom: 2rem;
+    text-align:center;
+  }
+
+  .hero-title-background {
+    margin-left: 2rem;
+    margin-bottom: 5rem;
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+    width: 25rem;
+    display: inline-block;
+  }
+
+  .hero-description {
+    display:block;
+    font-size: 1rem;
+    text-align: center;
+    
+  }
+
+  .hero-button{
+    display: block;
+    margin: 0 auto;
+    
+  }
+
+  .carousel-dots {
+    bottom: 1rem;
+    align-self: center;
+    width: 100%;
+    
+  }
+  
+  
+}
+/*Filter Pills*/
+@media (min-width: 48em){
+  .filter-container{
+    display: none;
+  }
+    .filter-pills {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .pill-button {
+    background-color: var(--dark-background);
+    color: var(--font-color);
+    border: 2px solid var(--accent);
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    border-radius: 2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .pill-button.active {
+    background-color: var(--accent);
+  }
+}
+
+
+
+/*MOVIE GRID FOR TABLET AND DESKTOP*/
+
+/* Hide grid on mobile show carousel */
+.movies-grid {
+  display: none;
+}
+
+/* Ttablet grid */
+@media (min-width: 48em) {
+
+  /* Hide carousel on tablet */
+  .movies-container {
+    display: none;
+  }
+
+  /* grid on tablet  */
+  .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    gap: 1rem;
+    justify-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  /* changed w and h for tablet for cleaner look
+  so movies dont look squished and big on tablet a little
+  more breathing room */
+
+  .grid-card img {
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .grid-card h3 {
+    color: var(--font-color);
+    font-size: 1rem;
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+  }
+
+
+.hero-image {
+  margin-top: 5rem;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+}
+
+/* to make sure tablet only shows 8 movies*/
+/* using nth child to target in parent container*/
+/*once we hit 1200 px there will be 12 movie cards that show up*/
+
+@media (min-width: 48em) and (max-width: 75em){
+
+  .grid-card:nth-child(9),
+  .grid-card:nth-child(10),
+  .grid-card:nth-child(11),
+  .grid-card:nth-child(12) {
+  display: none;
+  }
+}
+
+
+
+/* Desktop grid */
+@media (min-width: 75em) {
+
+   .hero-title-background {
+    margin-left: 5rem;
+    margin-bottom: 10rem;
+    
+  }
+
+
+  .movies-grid {
+    grid-template-columns: repeat(4, 200px);
+  }
+
+
+  .grid-card img {
+    width: 200px;
+    height: 300px;
+
+    object-fit: cover;
+  }
+}
+
