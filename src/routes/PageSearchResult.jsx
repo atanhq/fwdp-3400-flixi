@@ -13,7 +13,7 @@ function PageSearchResult() {
     return (
         <main>
 		    <section class="search">
-                <h1>Search result: <strong>Result</strong></h1>
+                <p class="search-term">Search result: <strong>Result</strong></p>
 
                 <div className="search-result">
                 {/* to be replaced with API */}

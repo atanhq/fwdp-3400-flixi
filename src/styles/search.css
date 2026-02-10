@@ -1,5 +1,11 @@
-.search h1 {
+.search {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+}
+
+.search-term {
     text-align: center;
+    font-size: 1.25rem;
 }
 
 .search-result {
@@ -13,6 +19,7 @@
 
 .view-more {
     text-align: center;
+    margin: 1rem 0;
 
     /* same as detailed.css */
     a {
@@ -27,6 +34,8 @@
     }
 }
 
+
+/* tablet */
 @media (min-width: 48em) {
 
     .search-result {
@@ -35,6 +44,7 @@
 
 }
 
+/* desktop */
 @media (min-width: 75em) {
 
     .search-result {
