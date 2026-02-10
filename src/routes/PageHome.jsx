@@ -10,7 +10,8 @@ function PageHome() {
 
 	useEffect(() => {
 		document.title = `${appTitle} - Home`;
-	}, []);
+	      }, 
+    []);
 
   const movies = [
     { id: 1, title: "Movie Title 1", image: placeholderImage },

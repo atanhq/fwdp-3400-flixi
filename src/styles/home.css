@@ -72,6 +72,9 @@
   cursor: pointer;
   border-radius: 0.5rem;
   text-transform: uppercase;
+  display:inline-block;
+  text-decoration: none;
+  width: fit-content;
 }
 
 /* Dots navigation */

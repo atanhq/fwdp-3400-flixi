@@ -1,4 +1,5 @@
 import heroImage from '../assets/400.svg';
+import { Link } from "react-router-dom";
 
 function MainHero() {
   const heroMovies = [
@@ -20,7 +21,7 @@ function MainHero() {
               <div className="hero-title-background">
                 <h1 className="hero-title">{movie.title}</h1>
                 <p className="hero-description">Short movie description! This is a cool Movie!</p>
-                <button className="hero-button">More</button>
+                <Link to={`/movie/${movie.id}`} className="hero-button">More</Link>
               </div>
             </div>
                <div className="carousel-dots">
