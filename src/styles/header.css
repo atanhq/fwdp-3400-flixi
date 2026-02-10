@@ -9,12 +9,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 3.51rem;
 }
 
 .header-logo {
-  height: 3.125rem;
+  height: 40px;
   width: auto;
   display: block;
+  transform: translateY(-0.2rem);
 }
 
 @media (min-width: 75em) {
