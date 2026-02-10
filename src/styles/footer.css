@@ -1,7 +1,12 @@
 footer {
-  background-color: var(--light-background);
+  background-color: var(--dark-background);
+  display: flex;
+  align-items: center;
+  height: 3rem;
   text-align: center;
-  padding: 0.5rem 0;
-  width: 100%;
-  margin-top: auto;
+}
+footer p {
+  color: var(--light-text);
+  font-size: 0.8rem;
+  margin: 0 auto;
 }

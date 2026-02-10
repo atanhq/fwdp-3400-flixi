@@ -43,23 +43,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.add-favourite-box:hover {
-  background-color: rgba(0, 188, 212, 0.1);
-  border-color: white;
 }
 
 .plus-icon {
   font-size: 4rem;
   color: white;
-  font-weight: 300;
-  line-height: 1;
-}
-
-@media (min-width: 75em) {
-  .page-favourites {
-    padding: 8rem 2rem 2rem;
-  }
+  font-weight: 400;
 }
