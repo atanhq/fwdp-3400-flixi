@@ -1,10 +1,16 @@
-
+import {useEffect} from 'react';
+import {appTitle} from '../globals/globalVariables';
 import MainHero from '../components/MainHero';
 import Filter from '../components/Filter';
 import Movie from '../components/Movie';
 import placeholderImage from '../assets/200x300.svg';
 
 function PageHome() {
+
+
+	useEffect(() => {
+		document.title = `${appTitle} - Home`;
+	}, []);
 
   const movies = [
     { id: 1, title: "Movie Title 1", image: placeholderImage },
