@@ -1,61 +1,67 @@
-import {useEffect} from 'react';
-import {appTitle} from '../globals/globalVariables';
-import MainHero from '../components/MainHero';
-import Filter from '../components/Filter';
-import Movie from '../components/Movie';
-import placeholderImage from '../assets/200x300.svg';
+import { useEffect, useState } from "react";
+import {
+  appTitle,
+  apiKey,
+  apiBaseUrl,
+  imageBaseUrl,
+} from "../globals/globalVariables";
+import MainHero from "../components/MainHero";
+import Filter from "../components/Filter";
+import Movie from "../components/Movie";
+import placeholderImage from "../assets/200x300.svg";
 
 import "../styles/home.css";
 
 function PageHome() {
+  const [movies, setMovies] = useState([]);
 
+  useEffect(() => {
+    document.title = `${appTitle} - Home`;
+  }, []);
 
-	useEffect(() => {
-		document.title = `${appTitle} - Home`;
-	      }, 
-    []);
-
-  const movies = [
-    { id: 1, title: "Movie Title 1", image: placeholderImage },
-    { id: 2, title: "Movie Title 2", image: placeholderImage },
-    { id: 3, title: "Movie Title 3", image: placeholderImage },
-    { id: 4, title: "Movie Title 4", image: placeholderImage },
-    { id: 5, title: "Movie Title 5", image: placeholderImage },
-    { id: 6, title: "Movie Title 6", image: placeholderImage },
-    { id: 1, title: "Movie Title 1", image: placeholderImage },
-    { id: 2, title: "Movie Title 2", image: placeholderImage },
-    { id: 3, title: "Movie Title 3", image: placeholderImage },
-    { id: 4, title: "Movie Title 4", image: placeholderImage },
-    { id: 5, title: "Movie Title 5", image: placeholderImage },
-    { id: 6, title: "Movie Title 6", image: placeholderImage },
-  ];
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await fetch(
+        `${apiBaseUrl}/movie/popular?api_key=${apiKey}`,
+      );
+      const data = await response.json();
+      console.log(data);
+      setMovies(data.results);
+    };
+    fetchMovies();
+  }, []);
 
   return (
     <>
-      <MainHero />
+      <MainHero heroMovies={movies.slice(0, 5)} />
       <Filter />
- 
 
       {/* Mobile 3d carousel ref from codepen */}
 
-      <div className="movies-container"> 
-      {movies.map(movie => (
-        <Movie key={movie.id} movie={movie} cardType="movie-card" />
-      ))}
-    </div>
+      <div className="movies-container">
+        {movies.map((movie) => (
+          <Movie
+            key={movie.id}
+            movie={movie}
+            cardType="movie-card"
+            imageBaseUrl={imageBaseUrl}
+          />
+        ))}
+      </div>
 
-  {/* grid for desktop and tablet */}
-    <div className="movies-grid"> 
-      {movies.map(movie => (
-        <Movie key={movie.id} movie={movie} cardType="grid-card" />
-      ))}
-    </div>
-      
-
+      {/* grid for desktop and tablet */}
+      <div className="movies-grid">
+        {movies.map((movie) => (
+          <Movie
+            key={movie.id}
+            movie={movie}
+            cardType="grid-card"
+            imageBaseUrl={imageBaseUrl}
+          />
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
-
-
-export default PageHome
+export default PageHome;
