@@ -1,16 +1,8 @@
-import './styles/base.css';
-import './styles/normalize-fwd.css';
-import './styles/nav.css';
-import './styles/header.css';
-import './styles/footer.css';
-import './styles/home.css';
-import './styles/about.css';
-import './styles/detailed.css';
-import './styles/favourites.css';
-import './styles/search.css';
-import './styles/notfound.css';
+
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { appTitle, appAuthor } from "./globals/globalVariables";
 
 // components
 import Nav from "./components/Nav";
@@ -25,6 +17,9 @@ import PageFavourites from "./routes/PageFavourites";
 import PageSearchResult from "./routes/PageSearchResult";
 import PageNotFound from "./routes/PageNotFound";
 
+// styling
+import './styles/base.css';
+import './styles/normalize-fwd.css';
 
 
 // ------------------------------------------------------------------------------ //
