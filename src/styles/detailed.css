@@ -4,6 +4,9 @@
     position: relative;
     width: 100vw;
     height: 30rem;
+
+    /* top header height */
+    margin-top: 3.5rem;
 }
 
 .detailed-hero {
@@ -56,6 +59,7 @@
         line-height: 1.25rem;
         letter-spacing: 1.1px;
         font-size: 0.9rem;
+        padding: 1rem 0;
     }
 }
 
@@ -102,6 +106,9 @@
     width: 90vw;
     display: block;
     margin: 0 auto;
+
+    /* separate from bottom nav height */
+    margin-bottom: 5rem;
 }
 
 .play-trailer-container {
@@ -146,10 +153,10 @@
     }
 
     .detailed-info {
-        width: 65%;
+        width: 60%;
         max-width: 50rem;
         position: absolute;
-        top: 8rem;
+        top: 6rem;
         left: 15%;
         margin-left: 10rem;
         z-index: 99;
@@ -161,7 +168,7 @@
 
     .rating-date {
         justify-content: left;
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
     }
 
     /* https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css */
