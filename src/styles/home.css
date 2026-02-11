@@ -3,7 +3,7 @@
 .hero-carousel {
   width: 100%;
   margin: 0;
-  margin-top: 5rem;
+  margin-top: 3.5rem;
 }
 
 .carousel-container {
@@ -45,10 +45,11 @@
 }
 
 .hero-title-background {
-  background: rgba(82, 82, 82, 0.8);
-  padding: 1rem;
+  background: rgb(35, 35, 35, 0.8);
+  padding: 1.5rem 1rem;
   width: 80%;
   z-index: 10;
+  text-align: center;
 }
 
 /* Movie title */
@@ -63,7 +64,7 @@
 
 /* More button */
 .hero-button {
-  background-color: var(--accent);
+  /* background-color: var(--accent);
   color: var(--font-color);
   border: none;
   padding: 0.2rem 1.2rem;
@@ -74,10 +75,41 @@
   text-transform: uppercase;
   display:inline-block;
   text-decoration: none;
-  width: fit-content;
+  width: fit-content; */
+
+  color: var(--font-color);
+  background-color: var(--accent);
+  padding: 0.3rem 0.9rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
 /* Dots navigation */
+.slick-dots {
+  margin-bottom: 3rem;
+  z-index: 999;
+}
+
+.slick-dots li button::before {
+  content: "";
+  opacity: 0.8;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5rem;
+}
+
+.slick-active button::before {
+  background-color: #fff;
+}
+
+.slick-dots li {
+  margin: 0 0.5rem;
+}
+
+
 .carousel-dots {
   position: absolute;
   bottom: 0.5rem; 
@@ -228,24 +260,31 @@
 
   .hero-title-background {
     margin-left: 2rem;
-    margin-bottom: 5rem;
-    padding-bottom: 5rem;
+    /* margin-bottom: 5rem;
+    padding-bottom: 5rem; */
     padding-top: 2rem;
     width: 25rem;
     display: inline-block;
+    text-align: left;
   }
 
   .hero-description {
     display:block;
     font-size: 1rem;
-    text-align: center;
     
   }
 
-  .hero-button{
-    display: block;
-    margin: 0 auto;
-    
+  .hero-button-wrapper{
+    text-align: center;
+  }
+
+  .hero-button {
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+            background-color: transparent;
+            outline: 2px solid var(--accent);
+        }
   }
 
   .carousel-dots {
@@ -334,7 +373,7 @@
 
 
 .hero-image {
-  margin-top: 5rem;
+  margin-top: 3.5rem;
   width: 100%;
   height: 500px;
   object-fit: cover;
@@ -363,7 +402,7 @@
 
    .hero-title-background {
     margin-left: 5rem;
-    margin-bottom: 10rem;
+    /* margin-bottom: 10rem; */
     
   }
 
@@ -379,5 +418,9 @@
 
     object-fit: cover;
   }
+}
+
+#slider-container .slider {
+    overflow: initial;
 }
 
