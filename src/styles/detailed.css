@@ -1,212 +1,206 @@
 /* ----------- DETAILED HERO IMAGES ----------- */
 
 .detailed-container {
-    position: relative;
-    width: 100vw;
-    height: 30rem;
+  position: relative;
+  width: 100vw;
+  height: 30rem;
 
-    /* top header height */
-    margin-top: 3.5rem;
+  /* top header height */
+  margin-top: 3.5rem;
 }
 
 .detailed-hero {
-    width: 100vw;
-    max-height: 15rem;
-    background-color: aliceblue;
+  width: 100vw;
+  max-height: 15rem;
+  background-color: aliceblue;
 
-    /* https://stackoverflow.com/questions/44673676/how-to-add-color-overlay-on-an-image */
-    &:before {
-        content: "";
-        position: absolute;
-        height: 15rem;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 1;
-    }
+  /* https://stackoverflow.com/questions/44673676/how-to-add-color-overlay-on-an-image */
+  &:before {
+    content: "";
+    position: absolute;
+    height: 15rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  img {
+    object-fit: cover;
+  }
 }
 
 .detailed-poster {
-    position: absolute;
-    width: 200px;
-    height: 300px;
-    aspect-ratio: 2 / 3;
-    background-color: aliceblue;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 2;
-    box-shadow: 0 0 20px var(--dark-background)
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  aspect-ratio: 2 / 3;
+  background-color: aliceblue;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+  box-shadow: 0 0 20px var(--dark-background);
 }
-
-
 
 /* ----------- DETAILED MOVIE INFO ----------- */
 
 .wrapper {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .detailed-info {
-    padding: 1rem;
-    margin-top: 10rem;
+  padding: 1rem;
+  margin-top: 10rem;
 
-    h1 {
-        text-align: center;
-    }
+  h1 {
+    text-align: center;
+  }
 
-    .summary {
-        line-height: 1.25rem;
-        letter-spacing: 1.1px;
-        font-size: 0.9rem;
-        padding: 1rem 0;
-    }
+  .summary {
+    line-height: 1.25rem;
+    letter-spacing: 1.1px;
+    font-size: 0.9rem;
+    padding: 1rem 0;
+  }
 }
 
 .rating-date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 
-    .rating-svg {
-        max-width: 1.5rem;
-    }
+  .rating-svg {
+    max-width: 1.5rem;
+  }
 
-    .date {
-        color: var(--accent);
-        font-weight: 700;
-    }
+  .date {
+    color: var(--accent);
+    font-weight: 700;
+  }
 }
 
 .genre-tags {
-    margin: 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
 
-    a {
-        display: block; 
-        color: var(--font-color);
-        background-color: var(--accent);
-        padding: 0.3rem 0.9rem;
-        border-radius: 1rem;
-        text-decoration: none;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-    }
+  a {
+    display: block;
+    color: var(--font-color);
+    background-color: var(--accent);
+    padding: 0.3rem 0.9rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
 }
-
 
 /* ----------- DETAILED MOVIE TRAILER----------- */
 
 .detailed-trailer {
-    width: 90vw;
-    display: block;
-    margin: 0 auto;
+  width: 90vw;
+  display: block;
+  margin: 0 auto;
 
-    /* separate from bottom nav height */
-    margin-bottom: 5rem;
+  /* separate from bottom nav height */
+  margin-bottom: 5rem;
 }
 
 .play-trailer-container {
-    position: relative;
+  position: relative;
 
-    .trailer {
-        width: 100%;
-        display: block;
-        box-shadow: 0 0 20px var(--dark-background);
-    }
+  .trailer {
+    width: 100%;
+    display: block;
+    box-shadow: 0 0 20px var(--dark-background);
+  }
 
-    .play-svg {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 3rem;
-        z-index: 2;
-    }
+  .play-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 3rem;
+    z-index: 2;
+  }
 }
-
-
 
 /* tablet */
 @media (min-width: 48em) {
+  .detailed-container {
+    height: 40rem;
+  }
 
-    .detailed-container {
-        height: 40rem;
+  .detailed-hero {
+    max-height: 20rem;
+
+    &:before {
+      height: 20rem;
     }
+  }
 
-    .detailed-hero {
-        max-height: 20rem;
+  .detailed-poster {
+    top: 30%;
+    left: 20%;
+  }
 
-        &:before {
-            height: 20rem;
-        }
+  .detailed-info {
+    width: 60%;
+    max-width: 50rem;
+    position: absolute;
+    top: 6rem;
+    left: 15%;
+    margin-left: 10rem;
+    z-index: 99;
+
+    h1 {
+      text-align: left;
     }
+  }
 
-    .detailed-poster {
-        top: 30%;
-        left: 20%;
-    }
+  .rating-date {
+    justify-content: left;
+    margin-bottom: 1.5rem;
+  }
 
-    .detailed-info {
-        width: 60%;
-        max-width: 50rem;
-        position: absolute;
-        top: 6rem;
-        left: 15%;
-        margin-left: 10rem;
-        z-index: 99;
+  /* https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css */
+  .summary {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
 
-        h1 {
-            text-align: left;
-        }
-    }
+  .genre-tags {
+    justify-content: left;
+  }
 
-    .rating-date {
-        justify-content: left;
-        margin-bottom: 1.5rem;
-    }
-
-    /* https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css */
-    .summary {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 3; /* number of lines to show */
-                line-clamp: 3; 
-        -webkit-box-orient: vertical;
-    }
-
-    .genre-tags {
-        justify-content: left;
-    }
-
-    .detailed-trailer {
-        margin-top: 15rem;
-        width: 60vw;
-        max-width: 40rem;
-    }
-
+  .detailed-trailer {
+    margin-top: 15rem;
+    width: 60vw;
+    max-width: 40rem;
+  }
 }
 
 /* desktop */
 @media (min-width: 75em) {
+  .detailed-info {
+    max-width: 75rem;
+    left: 18%;
+  }
 
-    .detailed-info {
-        max-width: 75rem;
-        left: 18%;
+  .genre-tags a {
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background-color: var(--light-background);
+      outline: 2px solid var(--accent);
     }
-
-    .genre-tags a {
-        transition: 0.3s ease-in-out;
-
-        &:hover {
-            background-color: var(--light-background);
-            outline: 2px solid var(--accent);
-        }
-    }
-
+  }
 }
