@@ -8,6 +8,8 @@ function PageSearchResult() {
     const [searchParams] = useSearchParams();
     const query = searchParams.get('query');
     const [movies, setMovies] = useState([]);
+    const [page, setPage] = useState(1);
+
 
 
 	useEffect(() => {
@@ -18,7 +20,7 @@ function PageSearchResult() {
         if (query) {
             const fetchSearch = async () => {
                 const response = await fetch (
-                    `${apiBaseUrl}/search/movie?api_key=${apiKey}&query=${query}`
+                    `${apiBaseUrl}/search/movie?api_key=${apiKey}&query=${query}&page=${page}`
                 );
                 const searchData = await response.json();
                 setMovies(searchData.results);
@@ -26,6 +28,18 @@ function PageSearchResult() {
             fetchSearch();
         }
     }, [query]);
+
+    const viewMoreMovies = async () => {
+        const nextPage = page + 1;
+        const viewMoreResponse = await fetch(
+            `${apiBaseUrl}/search/movie?api_key=${apiKey}&query=${query}&page=${nextPage}`
+
+        );
+        const searchData = await viewMoreResponse.json();
+        setMovies([...movies, ...searchData.results]);
+        setPage(nextPage);
+
+    };
 
     return (
         <main>
@@ -61,7 +75,7 @@ function PageSearchResult() {
                 </div>
 
                 <div className="view-more">
-                    <a href="">View More</a>
+                    <a onClick={viewMoreMovies}>View More</a>
                 </div>
             </section>
 	    </main>
