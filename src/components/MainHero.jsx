@@ -20,6 +20,7 @@ function MainHero({ heroMovies }) {
             <div className="hero-wrapper">
               <div className="hero-title-background">
                 <h1 className="hero-title">{movie.title}</h1>
+                
                 {/* adding the desciption for the hero movie, set the length to 150 characters
                     will need to adjust the css so that it formats properly */}
                 <p className="hero-description">
