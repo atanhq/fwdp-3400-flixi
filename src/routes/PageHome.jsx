@@ -19,6 +19,9 @@ function PageHome() {
     document.title = `${appTitle} - Home`;
   }, []);
 
+  // Fetching Movies From API, Using useEffect so that it only runs once when page loads, and not on every re-render
+  // No Filter For now, just fetching popular movies, we can add filters later
+
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetch(
@@ -33,6 +36,8 @@ function PageHome() {
 
   return (
     <>
+      {/* Sending the first 5 Movies to the hero carousel, we can change this later */}
+
       <MainHero heroMovies={movies.slice(0, 5)} />
       <Filter />
 
