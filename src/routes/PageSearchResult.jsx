@@ -30,10 +30,11 @@ function PageSearchResult() {
     return (
         <main>
 		    <section class="search">
-                <p class="search-term">Search result: <strong>Result</strong></p>
+                <p className="search-term">Search result: <strong>{query}</strong></p>
 
                 <div className="search-result">
-                {/* to be replaced with API */}
+
+                {/* to be replaced with API 
                     <img src="https://placehold.co/200x300" className="search-card"/>
                     <img src="https://placehold.co/200x300" className="search-card"/>
                     <img src="https://placehold.co/200x300" className="search-card"/>
@@ -46,6 +47,17 @@ function PageSearchResult() {
                     <img src="https://placehold.co/200x300" className="search-card"/>
                     <img src="https://placehold.co/200x300" className="search-card"/>
                     <img src="https://placehold.co/200x300" className="search-card"/>
+                    */}
+
+                    {movies.map(movie => (
+                    <img
+                        key={movie.id}
+                        src={`${imageBaseUrl}w200${movie.poster_path}`}
+                        alt={movie.title}
+                        className="search-card"
+                        />
+
+                    ))}
                 </div>
 
                 <div className="view-more">
