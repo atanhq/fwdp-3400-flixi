@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 function Movie({ movie, cardType }) {
   return (
-    <Link to={`/movie/${movie.id}`}>
-      <div className={cardType}>
+    <div className={cardType}>
+      <Link to={`/movie/${movie.id}`}>
         <img
           src={`${imageBaseUrl}w500${movie.poster_path}`}
           alt={movie.title}
         />
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 
