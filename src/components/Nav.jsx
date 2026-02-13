@@ -2,6 +2,9 @@
 // includes search bar
 // css, active state for search bar on click to activate
 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import homeIcon from "../assets/icons/home.svg";
 import searchIcon from "../assets/icons/search.svg";
 import favouritedIcon from "../assets/icons/favourited.svg";
@@ -10,6 +13,16 @@ import logo from "../assets/icons/flixi-logo-cropped-nav.svg";
 import "../styles/nav.css";
 
 const Nav = () => {
+  const [searchType, searchTypeUpdate] = useState('');
+  const navigate = useNavigate();
+
+  const submitSearch = (e) => {
+    e.preventDefault();
+    if (searchType.trim()) {
+      navigate(`/search?query=${searchType}`)
+    }
+  };
+
   return (
     <>
       <nav className="mobile-nav">
@@ -57,14 +70,17 @@ const Nav = () => {
             </a>
           </li>
           <li className="search-li">
-            <div className="search-wrapper">
+            
+            <form onSubmit={submitSearch} className="search-wrapper">
               <img className="search-icon" src={searchIcon} alt="search icon" />
               <input
                 type="text"
                 placeholder="Search movie title..."
                 className="search-input"
+                value={searchType}
+                onChange={(e) => searchTypeUpdate(e.target.value)}
               />
-            </div>
+            </form>
           </li>
           <li>
             <a href="/favourites">
