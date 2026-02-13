@@ -8,7 +8,7 @@ import {
 import MainHero from "../components/MainHero";
 import Filter from "../components/Filter";
 import Movie from "../components/Movie";
-import placeholderImage from "../assets/200x300.svg";
+// import placeholderImage from "../assets/200x300.svg";
 
 import "../styles/home.css";
 
