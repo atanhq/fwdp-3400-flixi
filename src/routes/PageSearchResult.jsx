@@ -1,14 +1,31 @@
-import { useEffect } from 'react';
-import { appTitle } from '../globals/globalVariables';
-
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { appTitle, apiKey, apiBaseUrl, imageBaseUrl } from '../globals/globalVariables';
 import '../styles/base.css';
 import '../styles/search.css';
 
 function PageSearchResult() {
+    const [searchParams] = useSearchParams();
+    const query = searchParams.get('query');
+    const [movies, setMovies] = useState([]);
+
 
 	useEffect(() => {
 		document.title = `${appTitle} - Search Result`;
 	}, []);
+
+    useEffect(() => {
+        if (query) {
+            const fetchSearch = async () => {
+                const response = await fetch (
+                    `${apiBaseUrl}/search/movie?api_key=${apiKey}&query=${query}`
+                );
+                const searchData = await response.json();
+                setMovies(searchData.results);
+            };
+            fetchSearch();
+        }
+    }, [query]);
 
     return (
         <main>
