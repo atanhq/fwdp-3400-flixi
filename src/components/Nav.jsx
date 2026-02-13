@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import homeIcon from "../assets/icons/home.svg";
 import searchIcon from "../assets/icons/search.svg";
 import favouritedIcon from "../assets/icons/favourited.svg";
