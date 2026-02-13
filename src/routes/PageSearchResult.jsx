@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { appTitle, apiKey, apiBaseUrl, imageBaseUrl } from '../globals/globalVariables';
 import '../styles/base.css';
 import '../styles/search.css';
@@ -64,13 +64,14 @@ function PageSearchResult() {
                     */}
 
                     {movies.map(movie => (
+                    
+                    <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <img
-                        key={movie.id}
                         src={`${imageBaseUrl}w200${movie.poster_path}`}
                         alt={movie.title}
                         className="search-card"
                         />
-
+                        </Link>
                     ))}
                 </div>
 
