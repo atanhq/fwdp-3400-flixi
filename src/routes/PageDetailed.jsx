@@ -17,7 +17,9 @@ import Movie from "../components/Movie";
 
 function PageDetailed() {
   // FOR FETCHING MOVIE DATA
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
+  const [trailer, setTrailer] = useState(null);
+
   // useParams Lets us grab the id from the url, which we set to the specific movie link in the Movie component, we can then use this id to fetch the specific movie data from the API and display it on the page
   const { id } = useParams();
 
@@ -27,43 +29,24 @@ function PageDetailed() {
     document.title = `${appTitle} - Movie`;
   }, []);
 
+  // Appending the videos to response so we can condense the call into one fetch instead of 2 https://ileolami.mintlify.app/parameters/append-response
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await fetch(
-        `${apiBaseUrl}/movie/${id}?api_key=${apiKey}`,
+        `${apiBaseUrl}/movie/${id}?api_key=${apiKey}&append_to_response=videos`,
       );
-      let data = await response.json();
-      console.log(data);
-      setMovie(data);
-    };
-    fetchMovie();
-  }, [id]);
-
-  //----------------------------------------------//
-
-  // TRAILER MOVIE ID AND YOUTUBE TRAILER DATA//
-
-  const [trailer, setTrailer] = useState(null);
-
-  useEffect(() => {
-    document.title = `${appTitle} - Movie`;
-  }, []);
-
-  //TRAILER FETCH//
-  useEffect(() => {
-    if (id) {
-      const fetchTrailer = async () => {
-        const response = await fetch(
-          `${apiBaseUrl}/movie/${id}/videos?api_key=${apiKey}`,
-        );
-        const trailerData = await response.json();
-        const youtubeTrailer = trailerData.results.find(
+      if (response.ok) {
+        let data = await response.json();
+        const youtubeTrailer = data.videos?.results.find(
           (video) => video.type === "Trailer" && video.site === "YouTube",
         );
+        setMovie(data);
         setTrailer(youtubeTrailer);
-      };
-      fetchTrailer();
-    }
+      } else {
+        console.error("Failed to fetch movie data");
+      }
+    };
+    fetchMovie();
   }, [id]);
 
   //----------------------------------------------//
@@ -77,22 +60,31 @@ function PageDetailed() {
 
         <div className="wrapper">
           <section className="detailed-info">
-            <h1>{movie.title}</h1>
+            {movie ? (
+              <>
+                <h1>{movie.title}</h1>
 
-            <div className="rating-date">
-              <img src={rating} className="rating-svg" />
-              <span className="rating">
-                {movie.vote_average?.toFixed(2)}
-              </span>
-              &bull;
-              <span className="date">{movie.release_date}</span>
-            </div>
+                <div className="rating-date">
+                  <img src={rating} className="rating-svg" />
+                  <span className="rating">
+                    {movie.vote_average?.toFixed(2)}
+                  </span>
+                  &bull;
+                  <span className="date">{movie.release_date}</span>
+                </div>
 
-            <p className="summary">{movie.overview}</p>
+                <p className="summary">{movie.overview}</p>
 
-            <div className="genre-tags">
-              {movie.genres && movie.genres.map((genre) => <a>{genre.name}</a>)}
-            </div>
+                <div className="genre-tags">
+                  {movie.genres &&
+                    movie.genres.map((genre) => (
+                      <a key={genre.id}>{genre.name}</a>
+                    ))}
+                </div>
+              </>
+            ) : (
+              <p>Movie not found</p>
+            )}
           </section>
 
           {/* ------------------- TRAILER ------------------- */}
