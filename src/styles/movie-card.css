@@ -1,0 +1,83 @@
+/* hover effect does not display on mobile/tablet */
+.movie-card-hover-info {
+    display: none;
+}
+
+/* desktop */
+@media (min-width: 75em) {
+
+    .movie-card-hover-info {
+        display: block;
+        position: absolute;
+        background-color: var(--dark-background);
+        width: 200px;
+        height: 300px;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
+        padding: 3rem 1rem;
+        transform: scale(0.7);
+
+        /* overwrite styling from base movie info */
+        h1 {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            text-align: left;
+            margin: 0;
+        }
+
+        p {
+            font-size: 0.8rem;
+        }
+
+        .hero-description {
+            margin-bottom: 1rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* number of lines to show */
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .date {
+            color: var(--accent);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .rating-svg {
+            max-width: 1rem;
+            max-height: 1rem;
+            vertical-align: middle;
+            margin-bottom: 4px;
+        }
+        
+        .rating {
+            font-size: 0.8rem;
+            padding-left: 0.5rem;
+        }
+    }
+
+
+    .movie-card-buttons-wrapper {
+        display: flex;
+        gap: 1rem;
+        position: absolute;
+        bottom: 1rem;
+        width: 168px;
+        align-items: center;
+        justify-content: space-between;
+
+        .not-favourited {
+            max-width: 2rem;
+            max-height: 2rem;
+            z-index: 99;
+        }
+    }
+
+
+    .movie-card-hover-info:hover {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+
+}
