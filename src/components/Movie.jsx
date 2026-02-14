@@ -12,15 +12,15 @@ function Movie({ movie, cardType }) {
   return (
     <div className={cardType}>
 
-      {/* hover effect on desktop movie-cards */}
+      {/* hover effect for desktop movie-cards */}
 
         <div className="movie-card-hover-info">
 
           <h1 className="hero-title">{movie.title}</h1>
 
-            <p className="date">{movie.release_date}</p>
-            <img src={rating} className="rating-svg" />
-            <span className="rating">{movie.vote_average?.toFixed(2)}</span>
+          <p className="date">{movie.release_date}</p>
+          <img src={rating} className="rating-svg" />
+          <span className="rating">{movie.vote_average?.toFixed(2)}</span>
 
           <p className="hero-description">
             {movie.overview.length > 80
@@ -47,15 +47,15 @@ function Movie({ movie, cardType }) {
         </div>
 
 
-        {/* movie card without hover */}
+      {/* end hover effect section; movie card for tablet/mobile */}
 
-        <div className="movie-card-hover">
-          <Link to={`/movie/${movie.id}`}>
-            <img
-              src={`${imageBaseUrl}w500${movie.poster_path}`}
-              alt={movie.title}
-            />
-          </Link>
+      <div className="movie-card-hover">
+        <Link to={`/movie/${movie.id}`}>
+          <img
+            src={`${imageBaseUrl}w500${movie.poster_path}`}
+            alt={movie.title}
+          />
+        </Link>
       </div>
 
     </div>
