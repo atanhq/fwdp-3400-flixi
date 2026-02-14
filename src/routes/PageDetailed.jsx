@@ -47,7 +47,6 @@ function PageDetailed() {
 
   
    // TRAILER MOVIE ID AND YOUTUBE TRAILER DATA//
-  const { trailerID } = useParams();
   const [trailer, setTrailer] = useState(null);
 
 
@@ -57,10 +56,10 @@ function PageDetailed() {
 
     //TRAILER FETCH//
   useEffect(() => {
-    if (trailerID) {
+    if (id) {
       const fetchTrailer = async () => {
       const response = await fetch(
-        `${apiBaseUrl}/movie/${trailerID}/videos?api_key=${apiKey}`
+        `${apiBaseUrl}/movie/${id}/videos?api_key=${apiKey}`
       );
       const trailerData = await response.json();
       const youtubeTrailer = trailerData.results.find(
@@ -72,7 +71,7 @@ function PageDetailed() {
     };
     fetchTrailer();
   }
-}, [trailerID]);
+}, [id]);
 
 
     //----------------------------------------------//
