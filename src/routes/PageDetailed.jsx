@@ -16,8 +16,7 @@ import {
 import Movie from "../components/Movie";
 
 function PageDetailed() {
-
-// FOR FETCHING MOVIE DATA
+  // FOR FETCHING MOVIE DATA
   const [movie, setMovie] = useState([]);
   // useParams Lets us grab the id from the url, which we set to the specific movie link in the Movie component, we can then use this id to fetch the specific movie data from the API and display it on the page
   const { id } = useParams();
@@ -40,45 +39,36 @@ function PageDetailed() {
     fetchMovie();
   }, [id]);
 
+  //----------------------------------------------//
 
+  // TRAILER MOVIE ID AND YOUTUBE TRAILER DATA//
 
-//----------------------------------------------//
-
-
-  
-   // TRAILER MOVIE ID AND YOUTUBE TRAILER DATA//
   const [trailer, setTrailer] = useState(null);
 
+  useEffect(() => {
+    document.title = `${appTitle} - Movie`;
+  }, []);
 
-	useEffect(() => {
-		document.title = `${appTitle} - Movie`;
-	}, []);
-
-    //TRAILER FETCH//
+  //TRAILER FETCH//
   useEffect(() => {
     if (id) {
       const fetchTrailer = async () => {
-      const response = await fetch(
-        `${apiBaseUrl}/movie/${id}/videos?api_key=${apiKey}`
-      );
-      const trailerData = await response.json();
-      const youtubeTrailer = trailerData.results.find(
-        video => video.type === 'Trailer' && video.site 
-        === 'YouTube'
-      );
-      setTrailer(youtubeTrailer);
+        const response = await fetch(
+          `${apiBaseUrl}/movie/${id}/videos?api_key=${apiKey}`,
+        );
+        const trailerData = await response.json();
+        const youtubeTrailer = trailerData.results.find(
+          (video) => video.type === "Trailer" && video.site === "YouTube",
+        );
+        setTrailer(youtubeTrailer);
+      };
+      fetchTrailer();
+    }
+  }, [id]);
 
-    };
-    fetchTrailer();
-  }
-}, [id]);
+  //----------------------------------------------//
 
-
-    //----------------------------------------------//
-
-    
-
-    return (
+  return (
     <main>
       <>
         <section className="detailed-hero">
@@ -105,37 +95,32 @@ function PageDetailed() {
             </div>
           </section>
 
-
-            {/* ------------------- TRAILER ------------------- */}
-		    <section className="detailed-trailer">
-                <h2>Trailer</h2>
-                {trailer ? (
-                <div className="play-trailer-container">
-
-                   {/* iframe resource: 
+          {/* ------------------- TRAILER ------------------- */}
+          <section className="detailed-trailer">
+            <h2>Trailer</h2>
+            {trailer ? (
+              <div className="play-trailer-container">
+                {/* iframe resource: 
                    https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe
                    */}
-                  <iframe 
+                <iframe
                   src={`https://www.youtube.com/embed/${trailer.key}`}
                   title="Movie Trailer"
-                  allow= "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className ="trailer"
-                  ></iframe>
+                  className="trailer"
+                ></iframe>
 
-                  
-                    
-                    {/*<img src="https://placehold.co/600x300" className="trailer"/>
+                {/*<img src="https://placehold.co/600x300" className="trailer"/>
 
                     <div className="play-svg-container">
                         <img src={play} className="play-svg"/>
                     </div>*/}
-                </div>
-                ) : (
-
-                  <p>No Trailer available</p>
-                )}
-            </section>
+              </div>
+            ) : (
+              <p>No Trailer available</p>
+            )}
+          </section>
         </div>
       </>
     </main>
