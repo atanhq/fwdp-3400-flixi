@@ -3,6 +3,8 @@
 import { imageBaseUrl } from "../globals/globalVariables";
 import { Link } from "react-router-dom";
 
+import notFavouritedIcon from "../assets/icons/not-favourited.svg";
+
 import rating from "../assets/rating.svg";
 import "../styles/movie-card.css";
 
@@ -26,14 +28,24 @@ function Movie({ movie, cardType }) {
               : movie.overview}
           </p>
 
-          <div className="hero-button-wrapper">
-            <Link to={`/movie/${movie.id}`} className="hero-button">
-              More
-            </Link>
+          <div className="movie-card-buttons-wrapper">
+            <div className="hero-button-wrapper">
+              <Link to={`/movie/${movie.id}`} className="hero-button">
+                More
+              </Link>
+            </div>
+
+            <div className="favourite-button-wrapper">
+              <img
+                  className="nav-icon-mobile"
+                  src={notFavouritedIcon}
+                  alt="not favourites icon"
+                />
+            </div>
           </div>
 
         </div>
-        
+
 
         {/* movie card without hover */}
 

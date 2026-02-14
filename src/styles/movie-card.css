@@ -13,8 +13,9 @@
         width: 200px;
         height: 300px;
         opacity: 0;
-        transition: 0.5s;
+        transition: 0.5s ease-in-out;
         padding: 3rem 1rem;
+        transform: scale(0.7);
 
         /* overwrite styling from base movie info */
         h1 {
@@ -53,16 +54,35 @@
             padding-left: 0.5rem;
         }
 
-        .hero-button {
+        /* .hero-button {
             display: flex;
             justify-content: center;
             position: absolute;
             bottom: 1rem;
+        } */
+    }
+
+
+    .movie-card-buttons-wrapper {
+        display: flex;
+        gap: 1rem;
+        position: absolute;
+        bottom: 1rem;
+        width: 168px;
+        align-items: center;
+        justify-content: space-between;
+
+        .nav-icon-mobile {
+            max-width: 2rem;
+            max-height: 2rem;
+            z-index: 99;
         }
     }
 
+
     .movie-card-hover-info:hover {
         opacity: 0.9;
+        transform: scale(1);
     }
 
 }
