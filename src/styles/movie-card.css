@@ -45,21 +45,16 @@
         }
 
         .rating-svg {
-            max-width: 0.8rem;
-            max-height: 0.8rem;
+            max-width: 1rem;
+            max-height: 1rem;
+            vertical-align: middle;
+            margin-bottom: 4px;
         }
         
         .rating {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             padding-left: 0.5rem;
         }
-
-        /* .hero-button {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            bottom: 1rem;
-        } */
     }
 
 
@@ -72,7 +67,7 @@
         align-items: center;
         justify-content: space-between;
 
-        .nav-icon-mobile {
+        .not-favourited {
             max-width: 2rem;
             max-height: 2rem;
             z-index: 99;

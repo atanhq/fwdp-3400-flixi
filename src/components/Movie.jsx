@@ -20,7 +20,7 @@ function Movie({ movie, cardType }) {
 
             <p className="date">{movie.release_date}</p>
             <img src={rating} className="rating-svg" />
-            <span className="rating">NR</span>
+            <span className="rating">{movie.vote_average?.toFixed(2)}</span>
 
           <p className="hero-description">
             {movie.overview.length > 80
@@ -37,7 +37,7 @@ function Movie({ movie, cardType }) {
 
             <div className="favourite-button-wrapper">
               <img
-                  className="nav-icon-mobile"
+                  className="not-favourited"
                   src={notFavouritedIcon}
                   alt="not favourites icon"
                 />

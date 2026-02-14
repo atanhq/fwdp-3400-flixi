@@ -91,7 +91,9 @@ function PageDetailed() {
 
             <div className="rating-date">
               <img src={rating} className="rating-svg" />
-              <span className="rating">NR</span>
+              <span className="rating">
+                {movie.vote_average?.toFixed(2)}
+              </span>
               &bull;
               <span className="date">{movie.release_date}</span>
             </div>
