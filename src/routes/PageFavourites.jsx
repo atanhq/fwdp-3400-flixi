@@ -1,23 +1,54 @@
 import "../styles/favourites.css";
-import sadFlixiIcon from "../assets/icons/sad-flixi.svg";
+// import sadFlixiIcon from "../assets/icons/sad-flixi.svg";
+import { useSelector } from 'react-redux';
+import Movie from '../components/Movie';
 
 const PageFavourites = () => {
+
+  const favs = useSelector((state) => state.favs.items);
+
+
   return (
     <div className="page-favourites">
       <div className="favourites-container">
-        <img
-          className="sad-flixi-icon"
-          src={sadFlixiIcon}
-          alt="Sad Flixi mascot"
-        />
 
-        <h1 className="favourites-heading">Oh no!</h1>
 
-        <p className="favourites-message">You don't have any favorites.</p>
+      {favs.length < 1 ? 
+      
+        <p>No favourite movies.</p>
+          
+            : 
+            
+        <div className="movies-grid">
+            {favs.map((movie, i) => {
+                return <Movie key={i} 
+                                movie={movie}
+                                isFav={true} />
+            })}
+              </div>
+      }
 
-        <div className="add-favourite-box">
-          <span className="plus-icon">+</span>
-        </div>
+
+
+{/* <img
+            className="sad-flixi-icon"
+            src={sadFlixiIcon}
+            alt="Sad Flixi mascot"
+          />
+
+          <h1 className="favourites-heading">Oh no!</h1>
+
+          <p className="favourites-message">You don't have any favorites.</p>
+
+          <div className="add-favourite-box">
+            <span className="plus-icon">+</span>
+          </div> */}
+
+
+
+
+
+        
       </div>
     </div>
   );

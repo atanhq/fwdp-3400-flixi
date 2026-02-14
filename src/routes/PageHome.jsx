@@ -8,12 +8,17 @@ import {
 import MainHero from "../components/MainHero";
 import Filter from "../components/Filter";
 import Movie from "../components/Movie";
-// import placeholderImage from "../assets/200x300.svg";
+
+// favourites
+import isFav from '../utilities/isFav';
+import { useSelector } from 'react-redux';
 
 import "../styles/home.css";
 
 function PageHome() {
   const [movies, setMovies] = useState([]);
+
+  const favs = useSelector((state) => state.favs.items);
 
   useEffect(() => {
     document.title = `${appTitle} - Home`;
@@ -36,6 +41,7 @@ function PageHome() {
 
   return (
     <>
+    
       {/* Sending the first 5 Movies to the hero carousel, we can change this later */}
 
       <MainHero heroMovies={movies.slice(0, 5)} />
@@ -50,6 +56,7 @@ function PageHome() {
             movie={movie}
             cardType="movie-card"
             imageBaseUrl={imageBaseUrl}
+            isFav={isFav(favs, null, movie.id)}
           />
         ))}
       </div>
@@ -62,6 +69,7 @@ function PageHome() {
             movie={movie}
             cardType="grid-card"
             imageBaseUrl={imageBaseUrl}
+            isFav={isFav(favs, null, movie.id)}
           />
         ))}
       </div>

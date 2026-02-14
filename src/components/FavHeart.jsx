@@ -5,7 +5,6 @@ function FavHeart({ movie, remove, handleFavClick }) {
 
     // function to add to favourites
     function handleAddFav(){
-        console.log('add')
         handleFavClick(true, movie);
     }
 
@@ -18,16 +17,20 @@ function FavHeart({ movie, remove, handleFavClick }) {
         <>
             {   remove === false ?
                 <div onClick={handleAddFav}>
-                    <img src={isFav} alt="is favourited" className="heart-svg"/>
+                    <img src={notFav} alt="not favourited" className="heart-svg"/>
                 </div>
                 :
                 <div onClick={handleRemoveFav}>
-                    <img src={notFav} alt="not favourited" className="heart-svg"/>
+                    <img src={isFav} alt="is favourited" className="heart-svg"/>
                 </div>
             }
         </>
     );
 
+}
+
+FavHeart.defaultProps = {
+    remove: false
 }
 
 

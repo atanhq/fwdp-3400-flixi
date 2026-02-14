@@ -2,6 +2,8 @@
 // movie card includes ratings, description, date, title
 import { imageBaseUrl } from "../globals/globalVariables";
 import { Link } from "react-router-dom";
+
+// favourites
 import { useDispatch } from 'react-redux';
 import FavHeart from "./FavHeart";
 import { addFav, deleteFav } from '../features/favsSlice';
@@ -13,17 +15,15 @@ function Movie({ movie, cardType, isFav }) {
 
     const dispatch = useDispatch();
 
-    function handleFavClick(addToFav, movie){
+    function handleFavClick(addToFav, obj){
         if(addToFav === true){
-            dispatch(addFav(movie));
+            dispatch(addFav(obj));
             console.log("added!");
         }else{
-            dispatch(deleteFav(movie));
+            dispatch(deleteFav(obj));
             console.log("deleted!");
         }
     }
-
-
 
   return (
     <div className={cardType}>
@@ -55,8 +55,10 @@ function Movie({ movie, cardType, isFav }) {
               {isFav ?
                     <FavHeart movie={movie} 
                               remove={true}
-                              handleFavClick={handleFavClick}  /> :
+                              handleFavClick={handleFavClick}  /> 
+                    :
                     <FavHeart movie={movie}
+                              remove={false}
                               handleFavClick={handleFavClick}  />
                 }
                 
