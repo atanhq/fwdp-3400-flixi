@@ -12,10 +12,10 @@
         background-color: var(--dark-background);
         width: 200px;
         height: 300px;
-        opacity: 1;
+        opacity: 0;
         transition: 0.5s ease-in-out;
         padding: 3rem 1rem;
-        /* transform: scale(0.7); */
+        transform: scale(0.7);
 
         /* overwrite styling from base movie info */
         h1 {

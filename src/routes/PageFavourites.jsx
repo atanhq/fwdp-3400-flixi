@@ -36,12 +36,20 @@ const PageFavourites = () => {
             : 
             
         <div className="fav-result">
-          {favs.map((movie, i) => {
-              return <Movie key={i} 
-                            movie={movie}
-                            cardType="grid-card"
-                            isFav={true} />
-          })}
+          <h1 className="fav-result-heading">Your Favourites</h1>
+
+          <div className="fav-result-grid">
+            {favs.map((movie, i) => {
+                return <Movie key={i} 
+                              movie={movie}
+                              cardType="grid-card"
+                              isFav={true} />
+            })}
+
+            <div className="add-favourite-box">
+              <Link to="/"><span className="plus-icon">+</span></Link>
+            </div>
+          </div>
         </div>
       }
 
