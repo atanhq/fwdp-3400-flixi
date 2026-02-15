@@ -1,5 +1,6 @@
 
-
+import { Provider } from 'react-redux'
+import { store } from './store/store.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { appTitle, appAuthor } from "./globals/globalVariables";
@@ -27,6 +28,7 @@ import './styles/normalize-fwd.css';
 function App() {
   return (
     <>
+    <Provider store={store}>
       <BrowserRouter>
         <div className="wrapper">
           <Header title={appTitle} />
@@ -45,6 +47,7 @@ function App() {
           <Footer author={appAuthor} />
         </div>
       </BrowserRouter>
+      </Provider>
     </>
   );
 }

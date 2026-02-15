@@ -66,11 +66,13 @@
         width: 168px;
         align-items: center;
         justify-content: space-between;
+        z-index: 99;
 
-        .not-favourited {
+        .heart-svg {
             max-width: 2rem;
             max-height: 2rem;
             z-index: 99;
+            cursor: pointer;
         }
     }
 

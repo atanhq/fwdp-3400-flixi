@@ -3,24 +3,43 @@
 import { imageBaseUrl } from "../globals/globalVariables";
 import { Link } from "react-router-dom";
 
-import notFavouritedIcon from "../assets/icons/not-favourited.svg";
+// favourites
+import { useDispatch } from 'react-redux';
+import FavHeart from "./FavHeart";
+import { addFav, deleteFav } from '../features/favsSlice';
 
 import rating from "../assets/rating.svg";
 import "../styles/movie-card.css";
 
-function Movie({ movie, cardType }) {
+function Movie({ movie, cardType, isFav }) {
+
+    const dispatch = useDispatch();
+
+    function handleFavClick(addToFav, obj){
+        if(addToFav === true){
+            dispatch(addFav(obj));
+            console.log("added!");
+        }else{
+            dispatch(deleteFav(obj));
+            console.log("deleted!");
+        }
+    }
+
   return (
     <div className={cardType}>
 
-      {/* hover effect on desktop movie-cards */}
+      {/* hover effect for desktop movie-cards */}
 
         <div className="movie-card-hover-info">
 
           <h1 className="hero-title">{movie.title}</h1>
 
-            <p className="date">{movie.release_date}</p>
+          <p className="date">{movie.release_date}</p>
+
+          <div className="rating-wrapper">
             <img src={rating} className="rating-svg" />
             <span className="rating">{movie.vote_average?.toFixed(2)}</span>
+          </div>
 
           <p className="hero-description">
             {movie.overview.length > 80
@@ -36,26 +55,31 @@ function Movie({ movie, cardType }) {
             </div>
 
             <div className="favourite-button-wrapper">
-              <img
-                  className="not-favourited"
-                  src={notFavouritedIcon}
-                  alt="not favourites icon"
-                />
+              {isFav ?
+                    <FavHeart movie={movie} 
+                              remove={true}
+                              handleFavClick={handleFavClick}  /> 
+                    :
+                    <FavHeart movie={movie}
+                              remove={false}
+                              handleFavClick={handleFavClick}  />
+                }
+                
             </div>
           </div>
 
         </div>
 
 
-        {/* movie card without hover */}
+      {/* end hover effect section; movie card for tablet/mobile */}
 
-        <div className="movie-card-hover">
-          <Link to={`/movie/${movie.id}`}>
-            <img
-              src={`${imageBaseUrl}w500${movie.poster_path}`}
-              alt={movie.title}
-            />
-          </Link>
+      <div className="movie-card-hover">
+        <Link to={`/movie/${movie.id}`}>
+          <img
+            src={`${imageBaseUrl}w500${movie.poster_path}`}
+            alt={movie.title}
+          />
+        </Link>
       </div>
 
     </div>
