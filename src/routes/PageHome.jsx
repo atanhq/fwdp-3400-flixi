@@ -9,9 +9,17 @@ import MainHero from "../components/MainHero";
 import Filter from "../components/Filter";
 import Movie from "../components/Movie";
 
+// Swiper from https://swiperjs.com/react for the mobile movie carousel
+// to install run  "npm i swiper"
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-cards";
+
 // favourites
-import isFav from '../utilities/isFav';
-import { useSelector } from 'react-redux';
+import isFav from "../utilities/isFav";
+import { useSelector } from "react-redux";
 
 import "../styles/home.css";
 
@@ -57,7 +65,6 @@ function PageHome() {
 
   return (
     <>
-    
       {/* Sending the first 5 Movies to the hero carousel, we can change this later */}
 
       <MainHero heroMovies={movies.slice(0, 5)} />
@@ -66,20 +73,42 @@ function PageHome() {
       {/* Mobile 3d carousel ref from codepen */}
 
       <div className="movies-container">
-        {movies.map((movie) => (
-          <Movie
-            key={movie.id}
-            movie={movie}
-            cardType="movie-card"
-            imageBaseUrl={imageBaseUrl}
-            isFav={isFav(favs, null, movie.id)}
-          />
-        ))}
+        <Swiper
+          slidesPerView={3}
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          spaceBetween={-50}
+          loop={true}
+          modules={[EffectCoverflow]}
+          coverflowEffect={{
+            rotate: 30,
+            stretch: 0,
+            depth: 200,
+            modifier: 1.5,
+            slideShadows: false,
+          }}
+          className="movies-swiper"
+        >
+          {movies.map((movie) => (
+            <SwiperSlide key={movie.id}>
+              <Movie
+                key={movie.id}
+                movie={movie}
+                cardType="movie-card"
+                imageBaseUrl={imageBaseUrl}
+                isFav={isFav(favs, null, movie.id)}
+              />
+              <h3 className="movie-title-mobile">{movie.title}</h3>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       {/* grid for desktop and tablet */}
       <div className="movies-grid">
         {/* only map movies where the poster Path exist  */}
+
         {movies.map(
           (movie) =>
             movie.poster_path !== null && (
@@ -89,15 +118,9 @@ function PageHome() {
                 cardType="grid-card"
                 imageBaseUrl={imageBaseUrl}
                 isFav={isFav(favs, null, movie.id)}
-          />
+              />
             ),
         )}
-      </div>
-
-      <div className="view-more">
-        <button className="pill-button active" onClick={viewMoreMovies}>
-          View More
-        </button>
       </div>
     </>
   );
