@@ -7,7 +7,8 @@
 }
 
 .favourites-container {
-  max-width: 37.5rem;
+  /* max-width: 37.5rem; */
+  max-width: 56rem;
   width: 100%;
   text-align: center;
 }
@@ -49,4 +50,56 @@
   font-size: 4rem;
   color: white;
   font-weight: 400;
+}
+
+.fav-result {
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 1rem;
+  justify-items: center;
+  justify-content: center;
+}
+
+
+/* tablet */
+@media (min-width: 48em) {
+
+  .fav-result {
+      grid-template-columns: repeat(3, 200px);
+
+    /* overwrite tablet grid-card styling */
+    .grid-card img {
+      width: 200px;
+      height: 300px;
+    }
+  }
+
+}
+
+/* desktop */
+@media (min-width: 75em) {
+
+  .fav-result {
+      /* grid-template-columns: repeat(4, 200px); */
+
+      grid-template-columns: repeat(auto-fit, 200px);
+      gap: 1;
+    justify-content: center;
+    justify-items: center;
+
+      /* overwrite styling */
+      .date {
+        text-align: left;
+      }
+
+      .rating-wrapper {
+        text-align: left;
+      }
+
+      .hero-description {
+        text-align: left;
+      }
+  }
+
 }

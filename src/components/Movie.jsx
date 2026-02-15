@@ -35,8 +35,11 @@ function Movie({ movie, cardType, isFav }) {
           <h1 className="hero-title">{movie.title}</h1>
 
           <p className="date">{movie.release_date}</p>
-          <img src={rating} className="rating-svg" />
-          <span className="rating">{movie.vote_average?.toFixed(2)}</span>
+
+          <div className="rating-wrapper">
+            <img src={rating} className="rating-svg" />
+            <span className="rating">{movie.vote_average?.toFixed(2)}</span>
+          </div>
 
           <p className="hero-description">
             {movie.overview.length > 80

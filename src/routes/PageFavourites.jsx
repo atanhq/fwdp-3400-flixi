@@ -1,7 +1,10 @@
 import "../styles/favourites.css";
-// import sadFlixiIcon from "../assets/icons/sad-flixi.svg";
+import "../styles/movie-card.css";
+
+import sadFlixiIcon from "../assets/icons/sad-flixi.svg";
 import { useSelector } from 'react-redux';
 import Movie from '../components/Movie';
+import { Link } from "react-router-dom";
 
 const PageFavourites = () => {
 
@@ -12,25 +15,10 @@ const PageFavourites = () => {
     <div className="page-favourites">
       <div className="favourites-container">
 
-
       {favs.length < 1 ? 
       
-        <p>No favourite movies.</p>
-          
-            : 
-            
-        <div className="movies-grid">
-            {favs.map((movie, i) => {
-                return <Movie key={i} 
-                                movie={movie}
-                                isFav={true} />
-            })}
-              </div>
-      }
-
-
-
-{/* <img
+        <div className="no-favourites">
+          <img
             className="sad-flixi-icon"
             src={sadFlixiIcon}
             alt="Sad Flixi mascot"
@@ -41,8 +29,25 @@ const PageFavourites = () => {
           <p className="favourites-message">You don't have any favorites.</p>
 
           <div className="add-favourite-box">
-            <span className="plus-icon">+</span>
-          </div> */}
+            <Link to="/"><span className="plus-icon">+</span></Link>
+          </div>
+        </div>
+          
+            : 
+            
+        <div className="fav-result">
+          {favs.map((movie, i) => {
+              return <Movie key={i} 
+                            movie={movie}
+                            cardType="grid-card"
+                            isFav={true} />
+          })}
+        </div>
+      }
+
+
+
+
 
 
 

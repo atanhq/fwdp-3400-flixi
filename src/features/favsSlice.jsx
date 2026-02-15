@@ -5,13 +5,16 @@ function getFavs() {
 
     const favs = localStorage.getItem(appStorageName)
 
-    if(favs !== null){
-        return {
-            items: JSON.parse(favs)
-        }
-    }
-    return {
+    if( favs === null ){
+      // if no favs, return empty array
+      return {
         items: []
+      }
+    }else{
+      // else parse into js array
+      return {
+          items: JSON.parse(favs)
+      }
     }
 }
 
@@ -46,7 +49,6 @@ export const favsSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { addFav, deleteFav } = favsSlice.actions
 
 export default favsSlice.reducer;
