@@ -190,7 +190,6 @@
 
 /* desktop */
 @media (min-width: 75em) {
-
   .detailed-info {
     max-width: 75rem;
     left: 18%;
@@ -199,10 +198,10 @@
   .genre-tags a {
     transition: 0.3s ease-in-out;
 
-      &:hover {
-        background-color: var(--light-background);
-        outline: 2px solid var(--accent);
-      }
+    &:hover {
+      background-color: var(--light-background);
+      outline: 2px solid var(--accent);
+    }
   }
 }
 
