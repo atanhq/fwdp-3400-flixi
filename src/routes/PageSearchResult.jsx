@@ -5,6 +5,7 @@ import '../styles/base.css';
 import '../styles/search.css';
 
 import noPoster from '../assets/no-poster.png';
+import Movie from '../components/Movie';
 
 function PageSearchResult() {
     const [searchParams] = useSearchParams();
@@ -63,6 +64,7 @@ function PageSearchResult() {
                         />
                         </Link>
                     ))}
+                    
                 </div>
 
                 <div className="view-more">

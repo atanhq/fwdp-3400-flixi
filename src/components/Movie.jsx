@@ -2,6 +2,7 @@
 // movie card includes ratings, description, date, title
 import { imageBaseUrl } from "../globals/globalVariables";
 import { Link } from "react-router-dom";
+import noPoster from '../assets/no-poster.png';
 
 // favourites
 import { useDispatch } from 'react-redux';
@@ -76,7 +77,10 @@ function Movie({ movie, cardType, isFav }) {
       <div className="movie-card-hover">
         <Link to={`/movie/${movie.id}`}>
           <img
-            src={`${imageBaseUrl}w500${movie.poster_path}`}
+            src={movie.poster_path === null ?
+            `${noPoster}`
+            :
+            `${imageBaseUrl}w500${movie.poster_path}`}
             alt={movie.title}
           />
         </Link>
