@@ -4,6 +4,8 @@ import { appTitle, apiKey, apiBaseUrl, imageBaseUrl } from '../globals/globalVar
 import '../styles/base.css';
 import '../styles/search.css';
 
+import noPoster from '../assets/no-poster.png';
+
 function PageSearchResult() {
     const [searchParams] = useSearchParams();
     const query = searchParams.get('query');
@@ -48,26 +50,14 @@ function PageSearchResult() {
 
                 <div className="search-result">
 
-                {/* to be replaced with API 
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    <img src="https://placehold.co/200x300" className="search-card"/>
-                    */}
-
                     {movies.map(movie => (
                     
                     <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <img
-                        src={`${imageBaseUrl}w200${movie.poster_path}`}
+                        src={movie.poster_path === null ?
+                            `${noPoster}`
+                            :
+                            `${imageBaseUrl}w200${movie.poster_path}`}
                         alt={movie.title}
                         className="search-card"
                         />
