@@ -2,6 +2,7 @@ import DetailedHero from "../components/DetailedHero";
 
 import "../styles/detailed.css";
 import "../styles/base.css";
+import "../styles/favourites.css";
 
 import rating from "../assets/rating.svg";
 // import play from "../assets/play.svg";
@@ -13,7 +14,13 @@ import {
   apiBaseUrl,
   // imageBaseUrl,
 } from "../globals/globalVariables";
-import Movie from "../components/Movie";
+
+// favourites
+import { useDispatch, useSelector } from 'react-redux';
+import FavHeart from "../components/FavHeart";
+import { addFav, deleteFav } from '../features/favsSlice';
+import isFav from '../utilities/isFav';
+
 
 function PageDetailed() {
   // FOR FETCHING MOVIE DATA
@@ -22,6 +29,27 @@ function PageDetailed() {
 
   // useParams Lets us grab the id from the url, which we set to the specific movie link in the Movie component, we can then use this id to fetch the specific movie data from the API and display it on the page
   const { id } = useParams();
+
+  // ------- favourites -------
+  const dispatch = useDispatch();
+
+    function handleFavClick(addToFav, obj){
+        if(addToFav === true){
+            dispatch(addFav(obj));
+            console.log("added!");
+        }else{
+            dispatch(deleteFav(obj));
+            console.log("deleted!");
+        }
+    }
+
+  const favs = useSelector((state) => state.favs.items);
+
+  // equivalent to PageHome's isFav={isFav(favs, null, movie.id)
+  // checks for movie 
+  const isFaved = movie ? isFav(favs, null, movie.id) : <p>Movie not found</p>;
+
+  // ------- end favourites -------
 
   console.log(id);
 
@@ -51,6 +79,7 @@ function PageDetailed() {
 
   //----------------------------------------------//
 
+
   return (
     <main>
       <>
@@ -62,7 +91,21 @@ function PageDetailed() {
           <section className="detailed-info">
             {movie ? (
               <>
-                <h1>{movie.title}</h1>
+                <div className="title-heart">
+                  <div><h1>{movie.title}</h1></div>
+              
+                  <div className="favourite-button-wrapper">
+                    {isFaved ?
+                          <FavHeart movie={movie} 
+                                    remove={true}
+                                    handleFavClick={handleFavClick}  /> 
+                          :
+                          <FavHeart movie={movie}
+                                    remove={false}
+                                    handleFavClick={handleFavClick}  />
+                      }
+                    </div>
+                  </div>
 
                 <div className="rating-date">
                   <img src={rating} className="rating-svg" />

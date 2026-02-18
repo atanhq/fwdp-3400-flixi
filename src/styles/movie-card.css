@@ -73,11 +73,13 @@
             max-height: 2rem;
             z-index: 99;
             cursor: pointer;
+            filter: drop-shadow(0 0 3px #000)
         }
     }
 
 
     .movie-card-hover-info:hover {
+        
         opacity: 0.9;
         transform: scale(1);
     }

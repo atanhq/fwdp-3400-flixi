@@ -4,7 +4,7 @@ import "../styles/footer.css";
 const Footer = ({ copyright, author }) => (
   <footer>
     <p>
-      &copy; {copyright} {author}
+      &copy; {copyright} {getYear()} {author}
     </p>
   </footer>
 );

@@ -52,15 +52,28 @@
   padding: 1rem;
   margin-top: 10rem;
 
-  h1 {
-    text-align: center;
-  }
-
   .summary {
     line-height: 1.25rem;
     letter-spacing: 1.1px;
     font-size: 0.9rem;
     padding: 1rem 0;
+  }
+}
+
+.title-heart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+    .heart-svg {
+      width: 2rem;
+      height: 2rem;
+      z-index: 99;
+      cursor: pointer;
+      margin-top: 4px;
+      filter: drop-shadow(0 0 3px #000);
   }
 }
 
@@ -72,6 +85,7 @@
 
   .rating-svg {
     max-width: 1.5rem;
+    margin-bottom: 4px;
   }
 
   .date {
@@ -85,7 +99,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
 
   a {
     display: block;
@@ -163,6 +177,11 @@
     }
   }
 
+  .title-heart {
+    flex-direction: row;
+    justify-content: left;
+  }
+
   .rating-date {
     justify-content: left;
     margin-bottom: 1.5rem;
@@ -195,12 +214,16 @@
     left: 18%;
   }
 
-  .genre-tags a {
-    transition: 0.3s ease-in-out;
+  .genre-tags {
+    margin: 1rem 0;
+  
+    a {
+      transition: 0.3s ease-in-out;
 
-    &:hover {
-      background-color: var(--light-background);
-      outline: 2px solid var(--accent);
+      &:hover {
+        background-color: var(--light-background);
+        outline: 2px solid var(--accent);
+      }
     }
   }
 }
@@ -224,3 +247,5 @@ iframe.trailer {
     max-height: 400px;
   }
 }
+
+
