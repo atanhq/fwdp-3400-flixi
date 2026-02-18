@@ -11,7 +11,6 @@
   overflow: hidden;
 }
 
-
 .hero-slide {
   display: none;
   width: 100%;
@@ -22,7 +21,6 @@
   display: block;
 }
 
-
 .hero-image {
   width: 100%;
   height: 400px;
@@ -30,18 +28,16 @@
   display: block;
 }
 
-
-.hero-wrapper{
-  position:absolute;
+.hero-wrapper {
+  position: absolute;
   bottom: 5rem;
   left: 0;
   right: 0;
   display: flex;
   flex-direction: column;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
   z-index: 10;
- 
 }
 
 .hero-title-background {
@@ -58,7 +54,7 @@
   margin: 0 0 1rem 0;
   color: var(--font-color);
 }
-.hero-description{
+.hero-description {
   display: none;
 }
 
@@ -109,10 +105,9 @@
   margin: 0 0.5rem;
 }
 
-
 .carousel-dots {
   position: absolute;
-  bottom: 0.5rem; 
+  bottom: 0.5rem;
   left: 0;
   right: 0;
   text-align: center;
@@ -136,7 +131,7 @@
 }
 
 .dot.active {
-  background-color:#fff;
+  background-color: #fff;
   border: 0.125rem solid white;
 }
 
@@ -164,11 +159,11 @@
   font-family: var(--font-family);
   border-radius: 2rem;
   cursor: pointer;
-  text-transform:uppercase;
+  text-transform: uppercase;
   font-weight: 700;
 }
 
-.filter-pills{
+.filter-pills {
   display: none;
 }
 
@@ -207,27 +202,28 @@
   transition: all 0.5s;
 }
 
-
 .movie-card:nth-child(1) {
   transform: rotateY(-30deg) translateX(-150px) scale(0.8);
   z-index: 1;
   opacity: 0.5;
+  ointer-events: none;
 }
 
 .movie-card:nth-child(2) {
   transform: rotateY(0deg) translateZ(100px) scale(1);
   z-index: 3;
   opacity: 1;
+  pointer-events: none;
 }
 
 .movie-card:nth-child(3) {
   transform: rotateY(30deg) translateX(150px) scale(0.8);
   z-index: 1;
   opacity: 0.5;
+  pointer-events: none;
 }
 
-
-  .movie-card:nth-child(4),
+.movie-card:nth-child(4),
 .movie-card:nth-child(5),
 .movie-card:nth-child(6) {
   opacity: 0;
@@ -241,21 +237,19 @@
 }
 
 /* hero carousel for tablet and desktop */
-@media (min-width: 48em){
+@media (min-width: 48em) {
   .hero-carousel {
-  width: 100%;
-  margin: 0;
-
-}
-
-  .hero-wrapper{
-    align-items: flex-start;
-    
+    width: 100%;
+    margin: 0;
   }
 
-   .hero-title {
+  .hero-wrapper {
+    align-items: flex-start;
+  }
+
+  .hero-title {
     margin-bottom: 2rem;
-    text-align:center;
+    text-align: center;
   }
 
   .hero-title-background {
@@ -269,12 +263,11 @@
   }
 
   .hero-description {
-    display:block;
+    display: block;
     font-size: 1rem;
-    
   }
 
-  .hero-button-wrapper{
+  .hero-button-wrapper {
     text-align: center;
   }
 
@@ -282,32 +275,29 @@
     transition: 0.3s ease-in-out;
 
     &:hover {
-            background-color: transparent;
-            outline: 2px solid var(--accent);
-        }
+      background-color: transparent;
+      outline: 2px solid var(--accent);
+    }
   }
 
   .carousel-dots {
     bottom: 1rem;
     align-self: center;
     width: 100%;
-    
   }
-  
-  
 }
 /*Filter Pills*/
-@media (min-width: 48em){
-  .filter-container{
+@media (min-width: 48em) {
+  .filter-container {
     display: none;
   }
-    .filter-pills {
+  .filter-pills {
     display: flex;
     gap: 1rem;
     justify-content: center;
     padding: 2rem;
   }
-  
+
   .pill-button {
     background-color: var(--dark-background);
     color: var(--font-color);
@@ -320,13 +310,11 @@
     text-transform: uppercase;
     font-weight: 700;
   }
-  
+
   .pill-button.active {
     background-color: var(--accent);
   }
 }
-
-
 
 /*MOVIE GRID FOR TABLET AND DESKTOP*/
 
@@ -337,7 +325,6 @@
 
 /* Ttablet grid */
 @media (min-width: 48em) {
-
   /* Hide carousel on tablet */
   .movies-container {
     display: none;
@@ -371,46 +358,38 @@
     text-align: center;
   }
 
-
-.hero-image {
-  margin-top: 3.5rem;
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-}
+  .hero-image {
+    margin-top: 3.5rem;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
 }
 
 /* to make sure tablet only shows 8 movies*/
 /* using nth child to target in parent container*/
 /*once we hit 1200 px there will be 12 movie cards that show up*/
 
-@media (min-width: 48em) and (max-width: 75em){
-
+@media (min-width: 48em) and (max-width: 75em) {
   .grid-card:nth-child(9),
   .grid-card:nth-child(10),
   .grid-card:nth-child(11),
   .grid-card:nth-child(12) {
-  display: none;
+    display: none;
   }
 }
 
-
-
 /* Desktop grid */
 @media (min-width: 75em) {
-
-   .hero-title-background {
+  .hero-title-background {
     margin-left: 5rem;
     /* margin-bottom: 10rem; */
-    
   }
-
 
   .movies-grid {
     grid-template-columns: repeat(4, 200px);
   }
-
 
   .grid-card img {
     width: 200px;
@@ -421,6 +400,5 @@
 }
 
 #slider-container .slider {
-    overflow: initial;
+  overflow: initial;
 }
-
