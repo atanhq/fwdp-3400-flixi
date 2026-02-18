@@ -11,9 +11,6 @@ nav a {
   padding: 1rem 0;
   z-index: 100;
 }
-nav a {
-  display: block;
-}
 
 .mobile-nav {
   position: fixed;
@@ -22,7 +19,7 @@ nav a {
   right: 0;
   background-color: var(--dark-background);
   padding: 1rem 0;
-  z-index: 100;
+  z-index: 10000;
   height: 3.5rem;
 }
 
@@ -84,6 +81,17 @@ nav a {
   width: 100%;
 }
 
+.mobile-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .search-icon {
   width: 1.25rem;
   height: 1.25rem;
@@ -109,6 +117,47 @@ nav a {
   display: block;
 }
 
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--dark-background);
+  padding: 1rem 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.51rem;
+  z-index: 10000000000;
+  padding: 1rem;
+}
+.overlay-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--light-background);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.close-btn {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  fill: var(--accent);
+}
+
+@media (min-width: 75em) {
+  .mobile-header {
+    display: none;
+  }
+}
+
 @media (min-width: 75em) {
   .mobile-nav {
     display: none;
@@ -116,4 +165,20 @@ nav a {
   .desktop-nav {
     display: flex;
   }
+  .search-overlay {
+    padding-left: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.search-overlay {
+  animation: fadeIn 0.6s ease forwards;
 }

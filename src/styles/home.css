@@ -170,10 +170,10 @@
 /*from code pen https://codepen.io/nopr/pen/DWrOBm*/
 /*MOBILE carousel*/
 .movies-container {
-  margin: 2rem auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 400px;
-  height: 250px;
+  height: 300px;
   position: relative;
   padding: 0 1rem;
 }
@@ -203,18 +203,28 @@
   padding: 0 1rem;
 }
 .movie-title-mobile {
-  display: none;
-  position: absolute;
-  bottom: -2.5rem;
-}
-.swiper-slide-active .movie-title-mobile {
-  display: block;
   text-align: center;
   font-size: small;
+  padding-bottom: 3rem;
 }
-.swiper {
-  padding-bottom: 2rem;
+.movie-title-mobile h3 {
+  text-align: center;
+  font-size: small;
+  line-height: 0.5;
 }
+
+.rating-svg {
+  max-width: 1rem;
+  max-height: 1rem;
+  vertical-align: middle;
+  margin-bottom: 4px;
+}
+
+.rating {
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+}
+
 /* 
 .swiper-slide-active {
   transform: rotateY(-30deg) scale(0.8);
