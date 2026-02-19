@@ -94,18 +94,12 @@ function PageDetailed() {
                 <div className="title-heart">
                   <div><h1>{movie.title}</h1></div>
               
-                  <div className="favourite-button-wrapper">
+                  <div className="favourite-button-wrapper-desktop">
                     {isFaved ?
-                          <FavHeart movie={movie} 
-                                    remove={true}
-                                    handleFavClick={handleFavClick}  /> 
-                          :
-                          <FavHeart movie={movie}
-                                    remove={false}
-                                    handleFavClick={handleFavClick}  />
-                      }
-                    </div>
+                      <FavHeart movie={movie} remove={true} handleFavClick={handleFavClick} /> :
+                      <FavHeart movie={movie} remove={false} handleFavClick={handleFavClick} /> }
                   </div>
+                </div>
 
                 <div className="rating-date">
                   <img src={rating} className="rating-svg" />
@@ -114,6 +108,12 @@ function PageDetailed() {
                   </span>
                   &bull;
                   <span className="date">{movie.release_date}</span>
+
+                  <div className="favourite-button-wrapper-mobile">
+                    {isFaved ?
+                      <FavHeart movie={movie} remove={true} handleFavClick={handleFavClick} /> :
+                      <FavHeart movie={movie} remove={false} handleFavClick={handleFavClick} /> }
+                  </div>
                 </div>
 
                 <p className="summary">{movie.overview}</p>

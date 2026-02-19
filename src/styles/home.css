@@ -51,6 +51,7 @@
 /* Movie title */
 .hero-title {
   font-size: var(--mobile-h1);
+  line-height: 2rem;
   margin: 0 0 1rem 0;
   color: var(--font-color);
 }
@@ -139,14 +140,17 @@
 .filter-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 1.5rem;
-  padding-left: 3rem;
+  /* padding-left: 3rem; */
 }
 
 .filter-label {
   color: var(--font-color);
   font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
   font-family: var(--font-family);
 }
 
@@ -161,6 +165,7 @@
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 700;
+  text-align: center;
 }
 
 .filter-pills {
@@ -214,8 +219,8 @@
 }
 
 .rating-svg {
-  max-width: 1rem;
-  max-height: 1rem;
+  max-width: 2rem;
+  max-height: 2rem;
   vertical-align: middle;
   margin-bottom: 4px;
 }
@@ -223,6 +228,10 @@
 .rating {
   font-size: 0.8rem;
   padding-left: 0.5rem;
+}
+
+.view-more {
+  display: none;
 }
 
 /* 
@@ -302,6 +311,22 @@
     align-self: center;
     width: 100%;
   }
+
+  .view-more {
+    display: block;
+
+    .pill-button {
+        color: var(--font-color);
+        background-color: var(--accent);
+        padding: 0.3rem 0.9rem;
+        border-radius: 1rem;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        border: none;
+    }
+  }
 }
 /*Filter Pills*/
 @media (min-width: 48em) {
@@ -312,7 +337,7 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
-    padding: 2rem;
+    padding: 3rem 2rem 1rem 2rem;
   }
 
   .pill-button {
@@ -414,6 +439,21 @@
 
     object-fit: cover;
   }
+
+  .view-more button {
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--light-background);
+            outline: 2px solid var(--accent);
+        }
+    }
+
+    .rating-svg {
+      max-width: 1rem;
+      max-height: 1rem;
+    }
 }
 
 #slider-container .slider {
