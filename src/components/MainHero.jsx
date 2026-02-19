@@ -12,11 +12,11 @@ function MainHero({ heroMovies }) {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 1500,
+    speed: 2200,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 5500,
   };
 
   return (

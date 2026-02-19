@@ -27,7 +27,7 @@ const initialState = {
 }
 
 // look into array index and find items that return 'true'
-function getIndex(item, arr ) {
+function getIndex(item, arr) {
     return arr.findIndex( arrItem => arrItem.id == item.id);
 }
 

@@ -70,7 +70,7 @@ function PageSearchResult() {
         </div>
 
         <div className="view-more">
-          <a onClick={viewMoreMovies}>View More</a>
+          <button onClick={viewMoreMovies}>View More</button>
         </div>
       </section>
     </main>
