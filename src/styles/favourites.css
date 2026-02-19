@@ -44,6 +44,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  order: -1;
 
   a {
     text-decoration: none;
@@ -66,7 +67,7 @@
 .fav-result-grid {
   padding: 2rem 0;
   display: grid;
-  grid-template-columns: repeat(2, 200px);
+  grid-template-columns: repeat(1, 200px);
   gap: 1rem;
   justify-items: center;
   justify-content: center;
@@ -85,7 +86,7 @@
       height: 300px;
     }
   }
-
+  
 }
 
 /* desktop */
