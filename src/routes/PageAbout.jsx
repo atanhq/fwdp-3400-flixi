@@ -1,5 +1,5 @@
 import "../styles/about.css";
-import flixiIcon from "../assets/icons/sad-flixi.svg";
+import flixiIcon from "../assets/icons/happyflixi.svg";
 
 const PageAbout = () => {
   return (
@@ -13,10 +13,9 @@ const PageAbout = () => {
 
         <div className="about-description">
           <p>
-            Flixi is our loveable TV robot that loves movies! It travels far and
-            wide in search of films and compiles them into a database to share
-            with us humans. Users can log favorite movies, watch trailers, and
-            view ratings.
+            Flixi is our loveable TV robot that loves movies! It travels far and wide in search of films and compiles them into a database to share with us humans. Users can log favorite movies, watch trailers, and view ratings.
+            
+            All our resources are from TMDB.
           </p>
         </div>
       </div>
