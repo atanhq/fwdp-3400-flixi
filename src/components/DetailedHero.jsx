@@ -11,12 +11,12 @@ function DetailedHero({ movie }) {
       <div className="detailed-container">
         <div className="detailed-hero">
           <img
-            src={movie.poster_path === null ?
+            src={movie.backdrop_path === null ?
             `${noBackdrop}`
             :
             `${imageBaseUrl}w1280${movie.backdrop_path}`}
             alt="Movie backdrop"
-            className="detailed-hero"
+            className="detailed-hero-backdrop"
           />
         </div>
       </div>

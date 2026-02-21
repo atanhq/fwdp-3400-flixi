@@ -30,6 +30,17 @@ const PageFavourites = () => {
 
             <p className="favourites-message">You don't have any favorites.</p>
 
+          <div className="fav-result-grid">
+
+            {/* added .slice() to copy array then .reverse() to reverse the array
+            to show recent added fav movies */}
+            {favs.slice().reverse().map((movie, i) => {
+                return <Movie key={i} 
+                              movie={movie}
+                              cardType="grid-card"
+                              isFav={true} />
+            })}
+
             <div className="add-favourite-box">
               <Link to="/">
                 <span className="plus-icon">+</span>

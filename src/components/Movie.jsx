@@ -39,7 +39,7 @@ function Movie({ movie, cardType, isFav }) {
 
           <div className="rating-wrapper">
             <img src={rating} className="rating-svg" />
-            <span className="rating">{movie.vote_average?.toFixed(2)}</span>
+            <span className="rating">{movie.vote_average?.toFixed(1)}</span>
           </div>
 
           <p className="hero-description">
