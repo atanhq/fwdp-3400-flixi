@@ -1,3 +1,5 @@
+/* Header Styles */
+
 .mobile-header {
   position: fixed;
   top: 0;
@@ -9,11 +11,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3.51rem;
+  height: 3.5rem;
 }
 
 .header-logo {
-  height: 40px;
+  height: 2.5rem;
   width: auto;
   display: block;
   transform: translateY(-0.2rem);

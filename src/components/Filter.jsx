@@ -22,7 +22,16 @@ function Filter({ currentFilter, updateFilter }) {
       </div>
 
       {/* Filter Pills*/}
+
       <div className="filter-pills">
+        <button
+          className={
+            "popular" === currentFilter ? "pill-button active" : "pill-button"
+          }
+          onClick={() => handleFilter("popular")}
+        >
+          Popular
+        </button>
         <button
           className={
             "upcoming" === currentFilter ? "pill-button active" : "pill-button"
@@ -39,14 +48,7 @@ function Filter({ currentFilter, updateFilter }) {
         >
           Top Rated
         </button>
-        <button
-          className={
-            "popular" === currentFilter ? "pill-button active" : "pill-button"
-          }
-          onClick={() => handleFilter("popular")}
-        >
-          Popular
-        </button>
+
         <button
           className={
             "now_playing" === currentFilter
