@@ -16,11 +16,10 @@ import {
 } from "../globals/globalVariables";
 
 // favourites
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import FavHeart from "../components/FavHeart";
-import { addFav, deleteFav } from '../features/favsSlice';
-import isFav from '../utilities/isFav';
-
+import { addFav, deleteFav } from "../features/favsSlice";
+import isFav from "../utilities/isFav";
 
 function PageDetailed() {
   // FOR FETCHING MOVIE DATA
@@ -33,20 +32,20 @@ function PageDetailed() {
   // ------- favourites -------
   const dispatch = useDispatch();
 
-    function handleFavClick(addToFav, obj){
-        if(addToFav === true){
-            dispatch(addFav(obj));
-            console.log("added!");
-        }else{
-            dispatch(deleteFav(obj));
-            console.log("deleted!");
-        }
+  function handleFavClick(addToFav, obj) {
+    if (addToFav === true) {
+      dispatch(addFav(obj));
+      console.log("added!");
+    } else {
+      dispatch(deleteFav(obj));
+      console.log("deleted!");
     }
+  }
 
   const favs = useSelector((state) => state.favs.items);
 
   // equivalent to PageHome's isFav={isFav(favs, null, movie.id)
-  // checks for movie 
+  // checks for movie
   const isFaved = movie ? isFav(favs, null, movie.id) : <p>Movie not found</p>;
 
   // ------- end favourites -------
@@ -60,8 +59,17 @@ function PageDetailed() {
   // Appending the videos to response so we can condense the call into one fetch instead of 2 https://ileolami.mintlify.app/parameters/append-response
   useEffect(() => {
     const fetchMovie = async () => {
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+      };
+
       const response = await fetch(
-        `${apiBaseUrl}/movie/${id}?api_key=${apiKey}&append_to_response=videos`,
+        `${apiBaseUrl}/movie/${id}?append_to_response=videos`,
+        options,
       );
       if (response.ok) {
         let data = await response.json();
@@ -76,9 +84,7 @@ function PageDetailed() {
     };
     fetchMovie();
   }, [id]);
-
   //----------------------------------------------//
-
 
   return (
     <main>
@@ -92,12 +98,24 @@ function PageDetailed() {
             {movie ? (
               <>
                 <div className="title-heart">
-                  <div><h1>{movie.title}</h1></div>
-              
+                  <div>
+                    <h1>{movie.title}</h1>
+                  </div>
+
                   <div className="favourite-button-wrapper-desktop">
-                    {isFaved ?
-                      <FavHeart movie={movie} remove={true} handleFavClick={handleFavClick} /> :
-                      <FavHeart movie={movie} remove={false} handleFavClick={handleFavClick} /> }
+                    {isFaved ? (
+                      <FavHeart
+                        movie={movie}
+                        remove={true}
+                        handleFavClick={handleFavClick}
+                      />
+                    ) : (
+                      <FavHeart
+                        movie={movie}
+                        remove={false}
+                        handleFavClick={handleFavClick}
+                      />
+                    )}
                   </div>
                 </div>
 
@@ -108,11 +126,20 @@ function PageDetailed() {
                   </span>
                   &bull;
                   <span className="date">{movie.release_date}</span>
-
                   <div className="favourite-button-wrapper-mobile">
-                    {isFaved ?
-                      <FavHeart movie={movie} remove={true} handleFavClick={handleFavClick} /> :
-                      <FavHeart movie={movie} remove={false} handleFavClick={handleFavClick} /> }
+                    {isFaved ? (
+                      <FavHeart
+                        movie={movie}
+                        remove={true}
+                        handleFavClick={handleFavClick}
+                      />
+                    ) : (
+                      <FavHeart
+                        movie={movie}
+                        remove={false}
+                        handleFavClick={handleFavClick}
+                      />
+                    )}
                   </div>
                 </div>
 

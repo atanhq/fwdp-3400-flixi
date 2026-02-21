@@ -1,9 +1,19 @@
-/*MOBILE STYLES*/
+/*HOME PAGE MOBILE FIRST STYLES*/
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hero Styles */
 
 .hero-carousel {
   width: 100%;
   margin: 0;
   margin-top: 3.5rem;
+  flex-shrink: 0;
 }
 
 .carousel-container {
@@ -23,7 +33,6 @@
 
 .hero-image {
   width: 100%;
-  height: 400px;
   object-fit: cover;
   display: block;
 }
@@ -55,25 +64,13 @@
   margin: 0 0 1rem 0;
   color: var(--font-color);
 }
+
 .hero-description {
   display: none;
 }
 
 /* More button */
 .hero-button {
-  /* background-color: var(--accent);
-  color: var(--font-color);
-  border: none;
-  padding: 0.2rem 1.2rem;
-  font-size: 1rem;
-  font-family: var(--font-family);
-  cursor: pointer;
-  border-radius: 0.5rem;
-  text-transform: uppercase;
-  display:inline-block;
-  text-decoration: none;
-  width: fit-content; */
-
   color: var(--font-color);
   background-color: var(--accent);
   padding: 0.3rem 0.9rem;
@@ -113,7 +110,6 @@
   right: 0;
   text-align: center;
   z-index: 10;
-  text-align: center;
   padding: 0.5rem 0;
   background-color: transparent;
   margin-bottom: 1rem;
@@ -143,7 +139,7 @@
   justify-content: center;
   gap: 1rem;
   padding: 1.5rem;
-  /* padding-left: 3rem; */
+  flex-shrink: 0;
 }
 
 .filter-label {
@@ -172,49 +168,64 @@
   display: none;
 }
 
-/*from code pen https://codepen.io/nopr/pen/DWrOBm*/
-/*MOBILE carousel*/
+/*Mobile carousel*/
 .movies-container {
-  margin: 0 auto;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 400px;
-  height: 300px;
-  position: relative;
+  margin: 0 auto;
   padding: 0 1rem;
 }
-.carousel {
-  height: 100%;
+
+.movies-swiper {
   width: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 1s;
+  height: 100%;
 }
 
 .swiper-slide:not(.swiper-slide-active) .movie-card {
   filter: blur(1px);
   opacity: 0.7;
   pointer-events: none;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.24);
+  }
 }
+
 .movie-card {
   display: block;
   background-color: var(--dark-background);
   width: 150px;
   height: 225px;
 }
+
 .movie-title-carousel {
   text-align: center;
   font-size: 0.9rem;
   margin-top: 0.5rem;
   padding: 0 1rem;
 }
+
 .movie-title-mobile {
   text-align: center;
   font-size: small;
   padding-bottom: 3rem;
 }
+
 .movie-title-mobile h3 {
   text-align: center;
-  font-size: small;
+  font-size: 1rem;
   line-height: 0.5;
 }
 
@@ -229,44 +240,31 @@
   font-size: 0.8rem;
   padding-left: 0.5rem;
 }
+.rating-mobile-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
 
 .view-more {
   display: none;
 }
 
-/* 
-.swiper-slide-active {
-  transform: rotateY(-30deg) scale(0.8);
-  z-index: 1;
-  opacity: 0.5;
-  pointer-events: none;
+.movies-grid {
+  display: none;
 }
 
-.swiper-slide-next {
-  transform: rotateY(0deg) translateZ(100px) scale(1);
-  z-index: 3;
-  opacity: 1;
-  pointer-events: none;
-} */
+/* HOME PAGE TABLET AND UP */
 
-/* .movie-card:nth-child(4),
-.movie-card:nth-child(5),
-.movie-card:nth-child(6) {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.movie-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-/* hero carousel for tablet and desktop */
 @media (min-width: 48em) {
+  .home-wrapper {
+    margin-bottom: 3rem;
+  }
   .hero-carousel {
     width: 100%;
     margin: 0;
+    flex-shrink: unset;
   }
 
   .hero-wrapper {
@@ -280,8 +278,6 @@
 
   .hero-title-background {
     margin-left: 2rem;
-    /* margin-bottom: 5rem;
-    padding-bottom: 5rem; */
     padding-top: 2rem;
     width: 25rem;
     display: inline-block;
@@ -316,23 +312,24 @@
     display: block;
 
     .pill-button {
-        color: var(--font-color);
-        background-color: var(--accent);
-        padding: 0.3rem 0.9rem;
-        border-radius: 1rem;
-        text-decoration: none;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        border: none;
+      color: var(--font-color);
+      background-color: var(--accent);
+      padding: 0.3rem 0.9rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border: none;
     }
   }
-}
-/*Filter Pills*/
-@media (min-width: 48em) {
+
+  /* Desktop/tablet Filter 
+  */
   .filter-container {
     display: none;
   }
+
   .filter-pills {
     display: flex;
     gap: 1rem;
@@ -356,23 +353,13 @@
   .pill-button.active {
     background-color: var(--accent);
   }
-}
 
-/*MOVIE GRID FOR TABLET AND DESKTOP*/
-
-/* Hide grid on mobile show carousel */
-.movies-grid {
-  display: none;
-}
-
-/* Ttablet grid */
-@media (min-width: 48em) {
-  /* Hide carousel on tablet */
   .movies-container {
     display: none;
   }
 
-  /* grid on tablet  */
+  /* Movie Grid tablet */
+
   .movies-grid {
     display: grid;
     grid-template-columns: repeat(4, 150px);
@@ -381,10 +368,6 @@
     justify-content: center;
     padding: 2rem;
   }
-
-  /* changed w and h for tablet for cleaner look
-  so movies dont look squished and big on tablet a little
-  more breathing room */
 
   .grid-card img {
     width: 200px;
@@ -408,25 +391,11 @@
     display: block;
   }
 }
+/* DESKTOP STYLES*/
 
-/* to make sure tablet only shows 8 movies*/
-/* using nth child to target in parent container*/
-/*once we hit 1200 px there will be 12 movie cards that show up*/
-
-@media (min-width: 48em) and (max-width: 75em) {
-  .grid-card:nth-child(9),
-  .grid-card:nth-child(10),
-  .grid-card:nth-child(11),
-  .grid-card:nth-child(12) {
-    display: none;
-  }
-}
-
-/* Desktop grid */
 @media (min-width: 75em) {
   .hero-title-background {
     margin-left: 5rem;
-    /* margin-bottom: 10rem; */
   }
 
   .movies-grid {
@@ -436,26 +405,35 @@
   .grid-card img {
     width: 200px;
     height: 300px;
-
     object-fit: cover;
   }
 
   .view-more button {
-        transition: 0.3s ease-in-out;
-        cursor: pointer;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 
-        &:hover {
-            background-color: var(--light-background);
-            outline: 2px solid var(--accent);
-        }
+    &:hover {
+      background-color: var(--light-background);
+      outline: 2px solid var(--accent);
     }
+  }
 
-    .rating-svg {
-      max-width: 1rem;
-      max-height: 1rem;
-    }
+  .rating-svg {
+    max-width: 1rem;
+    max-height: 1rem;
+  }
 }
 
 #slider-container .slider {
   overflow: initial;
+}
+
+/* Loader Fade in Keyframe */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

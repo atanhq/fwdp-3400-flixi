@@ -1,9 +1,11 @@
+/* About Page Styles */
 .page-about {
   min-height: 100vh;
   background-color: var(--light-background);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem 1rem;
 }
 
 .about-container {
@@ -14,9 +16,8 @@
 
 .about-heading {
   font-size: 2rem;
-  font-weight: 400;
   margin-bottom: 2rem;
-  color: white;
+  margin-top: 4rem;
 }
 
 .accent {
@@ -34,9 +35,24 @@
   background-color: var(--dark-background);
   padding: 1.5rem;
   border-radius: 0.5rem;
-  margin-bottom: 3rem;
+  margin: 1rem 1rem 3rem;
+  line-height: 1.6;
 }
 
-.about-description p {
-  line-height: 1.6;
+.about-api-use {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2rem;
+  gap: 0.3rem;
+}
+.about-api-use p {
+  text-align: left;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.tmdb-logo {
+  width: 3rem;
+  height: auto;
 }
