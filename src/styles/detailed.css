@@ -12,7 +12,7 @@
 .detailed-hero {
   width: 100vw;
   max-height: 15rem;
-  background-color: aliceblue;
+  background-color: var(--light-background);
 
   /* https://stackoverflow.com/questions/44673676/how-to-add-color-overlay-on-an-image */
   &:before {
@@ -23,8 +23,11 @@
     background: rgba(0, 0, 0, 0.3);
     z-index: 1;
   }
-  img {
+  
+  .detailed-hero-backdrop {
     object-fit: cover;
+    width: 100%;
+    height: 15rem;
   }
 }
 
@@ -85,19 +88,19 @@
   .rating-svg {
     width: 1.3rem;
     height: 1.3rem;
-    margin-top: 3px;
+    margin-top: 2px;
   }
 
   .date {
     color: var(--accent);
     font-weight: 700;
-    font-size: 1.3rem;
-    padding: 0 1rem;
+    font-size: 1.2rem;
+    padding: 0 0.3rem 0 1rem;
   }
 
   .rating {
-    font-size: 1.3rem;
-    padding: 0 1rem 0 0.5rem;
+    font-size: 1.1rem;
+    padding: 0 1rem 0 0.3rem;
   }
 
   .heart-svg {
@@ -176,6 +179,10 @@
     max-height: 20rem;
 
     &:before {
+      height: 20rem;
+    }
+
+    .detailed-hero-backdrop {
       height: 20rem;
     }
   }
