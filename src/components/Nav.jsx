@@ -2,7 +2,7 @@
 // includes search bar
 // css, active state for search bar on click to activate
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {apiKey, apiBaseUrl, imageBaseUrl} from "../globals/globalVariables";
 
@@ -20,6 +20,20 @@ const Nav = () => {
   const navigate = useNavigate();
   const [searchOverlay, setSearchOverlay] = useState(false);
 
+  // using ref to spot clicks outside dropdown
+  const dropdownHide = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if(dropdownHide.current && !dropdownHide.current.contains(e.target)) {
+        toggleDropdown(false);
+      }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+
+}, []);
   // suggestion dropdown
 
   const [suggestions, saveSuggestions] = useState([]);
@@ -168,7 +182,7 @@ useEffect(() => {
               <img className="nav-icon-logo" src={logo} alt="flixi logo" />
             </a>
           </li>
-          <li className="search-li">
+          <li className="search-li" ref={dropdownHide}>
             <form onSubmit={submitSearch} className="search-wrapper">
               <img className="search-icon" src={searchIcon} alt="search icon" />
               <input
