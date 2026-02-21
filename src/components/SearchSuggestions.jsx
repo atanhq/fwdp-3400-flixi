@@ -3,10 +3,11 @@
 
 import { imageBaseUrl } from "../globals/globalVariables";
 import noPoster from '../assets/no-poster.png';
+import happyFlixi from '../assets/icons/happyflixi.svg';
 
 
 
-function SearchSuggestions({ suggestions, handleSuggestionClick }) {
+function SearchSuggestions({ suggestions, handleSuggestionClick, searchType }) {
 
     return (
         <ul className="suggestions-dropdown">
@@ -19,6 +20,10 @@ function SearchSuggestions({ suggestions, handleSuggestionClick }) {
                     <p>{movie.title}</p>
                 </li>
             ))}
+            <li className ="browse-more">
+                <img src={happyFlixi} alt="happy flixi robot" className="browse-more-icon" />
+                <a href ={`/search?query=${searchType}`}>Browse more "{searchType}" movies</a>
+            </li>
         </ul>
     );
 }

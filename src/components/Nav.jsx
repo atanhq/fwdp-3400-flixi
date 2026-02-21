@@ -167,6 +167,7 @@ useEffect(() => {
               <SearchSuggestions
               suggestions={suggestions}
               handleSuggestionClick={handleSuggestionClick}
+              searchType={searchType}
               />
               )}
             </div>
@@ -198,6 +199,7 @@ useEffect(() => {
               <SearchSuggestions
               suggestions={suggestions}
               handleSuggestionClick={handleSuggestionClick}
+              searchType={searchType}
               />
             )}
           </li>
