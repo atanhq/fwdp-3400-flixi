@@ -22,6 +22,10 @@ import { addFav, deleteFav } from "../features/favsSlice";
 import isFav from "../utilities/isFav";
 
 function PageDetailed() {
+  useEffect(() => {
+    document.title = `${appTitle} - Movie Details`;
+  }, []);
+
   // FOR FETCHING MOVIE DATA
   const [movie, setMovie] = useState(null);
   const [trailer, setTrailer] = useState(null);

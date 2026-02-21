@@ -1,8 +1,14 @@
 import "../styles/about.css";
 import flixiIcon from "../assets/icons/happyflixi.svg";
 import tmdbLogo from "../assets/icons/tmdb-logo.svg";
+import { useEffect } from "react";
+import { appTitle } from "../globals/globalVariables";
 
 const PageAbout = () => {
+  useEffect(() => {
+    document.title = `${appTitle} - About`;
+  }, []);
+
   return (
     <div className="page-about">
       <div className="about-container">
