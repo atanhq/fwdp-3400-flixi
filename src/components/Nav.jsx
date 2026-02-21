@@ -25,15 +25,16 @@ const Nav = () => {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if(dropdownHide.current && !dropdownHide.current.contains(e.target)) {
-        toggleDropdown(false);
-      }
+     if(dropdownHide.current && !dropdownHide.current.contains(e.target)) {
+       toggleDropdown(false);
+     }
   };
 
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => document.removeEventListener("mousedown", handleClickOutside);
+  document.addEventListener("click", handleClickOutside);
+ return () => document.removeEventListener("click", handleClickOutside);
 
 }, []);
+
   // suggestion dropdown
 
   const [suggestions, saveSuggestions] = useState([]);
