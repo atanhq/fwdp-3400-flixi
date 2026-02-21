@@ -77,6 +77,7 @@ useEffect(() => {
     toggleDropdown(false);
     saveSuggestions([]);
     searchTypeUpdate("");
+    setSearchOverlay(false);
   };
 
   return (
