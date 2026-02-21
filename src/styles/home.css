@@ -232,6 +232,7 @@
 .rating-svg {
   max-width: 2rem;
   max-height: 2rem;
+  width: 1rem;
   vertical-align: middle;
   margin-bottom: 4px;
 }
@@ -421,6 +422,14 @@
   .rating-svg {
     max-width: 1rem;
     max-height: 1rem;
+  }
+
+  .pill-button {
+    transition: 0.3s;
+  }
+
+  .pill-button:hover {
+    box-shadow: 0 0 5px var(--accent);
   }
 }
 

@@ -17,13 +17,9 @@ const PageFavourites = () => {
 
   return (
     <div className="page-favourites">
-
       <div className="favourites-container">
-
         {favs.length < 1 ? (
-
           <div className="no-favourites">
-
             <img
               className="sad-flixi-icon"
               src={sadFlixiIcon}
@@ -31,7 +27,6 @@ const PageFavourites = () => {
             />
 
             <h1 className="favourites-heading">Oh no!</h1>
-
             <p className="favourites-message">You don't have any favorites.</p>
 
             <div className="fav-result-grid">
@@ -50,11 +45,8 @@ const PageFavourites = () => {
                   <span className="plus-icon">+</span>
                 </Link>
               </div>
-
             </div>
-
           </div>
-
         ) : (
           <div className="fav-result">
             <h1 className="fav-result-heading">Your Favourites</h1>
