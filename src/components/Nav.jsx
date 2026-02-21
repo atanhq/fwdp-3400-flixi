@@ -2,21 +2,67 @@
 // includes search bar
 // css, active state for search bar on click to activate
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {apiKey, apiBaseUrl, imageBaseUrl} from "../globals/globalVariables";
 
 import homeIcon from "../assets/icons/home.svg";
 import searchIcon from "../assets/icons/search.svg";
 import favouritedIcon from "../assets/icons/favourited.svg";
 import infoIcon from "../assets/icons/info.svg";
 import logo from "../assets/icons/flixi-logo-cropped-nav.svg";
-import closebtn from "../assets/icons/xmark.svg";
+//import closebtn from "../assets/icons/xmark.svg";
 import "../styles/nav.css";
+import SearchSuggestions from "./SearchSuggestions";
 
 const Nav = () => {
   const [searchType, searchTypeUpdate] = useState("");
   const navigate = useNavigate();
   const [searchOverlay, setSearchOverlay] = useState(false);
+
+  // suggestion dropdown
+
+  const [suggestions, saveSuggestions] = useState([]);
+  const [showDropdown, toggleDropdown] = useState(false);
+
+useEffect(() => {
+
+  // doesn't give suggestions until at least 3 
+  // letters are typed
+  if(searchType.length < 3) {
+    toggleDropdown(false);
+    saveSuggestions([]);
+    return;
+  }
+
+  // doesn't allow api calls for each letter typed
+  // after 150 milliseconds thats when suggestions show
+  const searchTimer = setTimeout(async () => {
+
+    const suggestionOptions = {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+    };
+
+    const suggestionResponse = await fetch(
+      `${apiBaseUrl}/search/movie?query=${searchType}`,
+      suggestionOptions
+    );
+
+    const suggestionData = await suggestionResponse.json();
+
+    // shows only 5 movie suggestions
+    saveSuggestions(suggestionData.results.slice(0, 5));
+    toggleDropdown(true);
+  }, 150);
+
+  
+  return() => clearTimeout(searchTimer);
+
+  }, [searchType] );
+
 
   const submitSearch = (e) => {
     e.preventDefault();
@@ -24,6 +70,13 @@ const Nav = () => {
       navigate(`/search?query=${searchType}`);
       searchOverlay && setSearchOverlay(false);
     }
+  };
+
+  const handleSuggestionClick = (movie) => {
+    navigate(`/movie/${movie.id}`);
+    toggleDropdown(false);
+    saveSuggestions([]);
+    searchTypeUpdate("");
   };
 
   return (
@@ -94,6 +147,12 @@ const Nav = () => {
                   }}
                 />
               </form>
+              {showDropdown && (
+              <SearchSuggestions
+              suggestions={suggestions}
+              handleSuggestionClick={handleSuggestionClick}
+              />
+              )}
             </div>
           </div>
 
@@ -119,6 +178,12 @@ const Nav = () => {
                 onChange={(e) => searchTypeUpdate(e.target.value)}
               />
             </form>
+            {showDropdown && (
+              <SearchSuggestions
+              suggestions={suggestions}
+              handleSuggestionClick={handleSuggestionClick}
+              />
+            )}
           </li>
           <li>
             <a href="/favourites">
