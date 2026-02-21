@@ -212,6 +212,12 @@
  
 }
 
+.suggestion-item:hover {
+  background-color: var(--dark-background);
+  box-shadow: 0 0 7px var(--accent);
+  cursor: pointer;
+
+}
 
 
 .suggestion-item img {
