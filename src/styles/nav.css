@@ -181,7 +181,7 @@
   animation: fadeIn 0.6s ease forwards;
 }
 
-
+/* Suggestion Dropdown */
 .search-li {
   width: 100%;
   position: relative;
@@ -228,6 +228,25 @@
 
 }
 
+.browse-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.browse-more a {
+  color: var(--font-color);
+  text-decoration: none;
+  text-align: center;
+  font-weight:700;
+}
+
+.browse-more-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
 
 @media (min-width: 75em) {
   

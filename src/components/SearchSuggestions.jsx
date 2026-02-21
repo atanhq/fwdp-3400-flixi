@@ -22,7 +22,7 @@ function SearchSuggestions({ suggestions, handleSuggestionClick, searchType }) {
             ))}
             <li className ="browse-more">
                 <img src={happyFlixi} alt="happy flixi robot" className="browse-more-icon" />
-                <a href ={`/search?query=${searchType}`}>Browse more "{searchType}" movies</a>
+                <a href ={`/search?query=${searchType}`}>Browse for more "{searchType}" movies</a>
             </li>
         </ul>
     );
