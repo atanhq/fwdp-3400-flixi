@@ -84,7 +84,7 @@
 /* Dots navigation */
 .slick-dots {
   margin-bottom: 3rem;
-  z-index: 999;
+  z-index: 5;
 }
 
 .slick-dots li button::before {
