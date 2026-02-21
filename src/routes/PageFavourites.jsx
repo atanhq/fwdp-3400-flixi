@@ -39,7 +39,10 @@ const PageFavourites = () => {
           <h1 className="fav-result-heading">Your Favourites</h1>
 
           <div className="fav-result-grid">
-            {favs.map((movie, i) => {
+
+            {/* added .slice() to copy array then .reverse() to reverse the array
+            to show recent added fav movies */}
+            {favs.slice().reverse().map((movie, i) => {
                 return <Movie key={i} 
                               movie={movie}
                               cardType="grid-card"

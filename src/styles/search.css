@@ -11,7 +11,7 @@
 .search-result {
     padding: 2rem 0;
     display: grid;
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(1, 200px);
     gap: 1rem;
     justify-items: center;
     justify-content: center;
