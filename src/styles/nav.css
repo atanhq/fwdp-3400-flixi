@@ -181,3 +181,24 @@
   animation: fadeIn 0.6s ease forwards;
 }
 
+.suggestions-dropdown {
+  position: absolute;
+  z-index: 1000000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--light-background);
+  width: 80%;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.suggestion-item img {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+}
