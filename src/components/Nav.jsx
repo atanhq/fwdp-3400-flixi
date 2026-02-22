@@ -8,6 +8,7 @@ import infoIcon from "../assets/icons/info.svg";
 import logo from "../assets/icons/flixi-logo-cropped-nav.svg";
 import "../styles/nav.css";
 import SearchSuggestions from "./SearchSuggestions";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [searchType, searchTypeUpdate] = useState("");
@@ -85,9 +86,9 @@ const Nav = () => {
       <nav className="mobile-nav">
         <ul className="nav-ul-mobile">
           <li>
-            <a href="/">
+            <Link to="/">
               <img className="nav-icon-mobile" src={homeIcon} alt="home icon" />
-            </a>
+            </Link>
           </li>
 
           <li>
@@ -104,23 +105,23 @@ const Nav = () => {
           </li>
 
           <li>
-            <a href="/favourites">
+            <Link to="/favourites">
               <img
                 className="nav-icon-mobile"
                 src={favouritedIcon}
                 alt="favourites icon"
               />
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/about">
+            <Link to="/about">
               <img
                 className="nav-icon-mobile"
                 src={infoIcon}
                 alt="about icon"
               />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
@@ -171,9 +172,9 @@ const Nav = () => {
       <nav className="desktop-nav">
         <ul className="nav-ul-desktop">
           <li>
-            <a href="/">
+            <Link to="/">
               <img className="nav-icon-logo" src={logo} alt="flixi logo" />
-            </a>
+            </Link>
           </li>
 
           <li className="search-li" ref={dropdownHide}>
@@ -198,23 +199,23 @@ const Nav = () => {
           </li>
 
           <li>
-            <a href="/favourites">
+            <Link to="/favourites">
               <img
                 className="nav-icon-desktop"
                 src={favouritedIcon}
                 alt="favourites icon"
               />
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="/about">
+            <Link to="/about">
               <img
                 className="nav-icon-desktop"
                 src={infoIcon}
                 alt="about icon"
               />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

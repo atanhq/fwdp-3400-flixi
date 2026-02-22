@@ -29,7 +29,7 @@ function App() {
   return (
     <>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/flixi-movie-database">
         <div className="wrapper">
           <Header title={appTitle} />
 
