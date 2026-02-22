@@ -180,3 +180,80 @@
 .search-overlay {
   animation: fadeIn 0.6s ease forwards;
 }
+
+/* Suggestion Dropdown */
+.search-li {
+  width: 100%;
+  position: relative;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: 2.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  z-index: 9999999999999999;
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  background-color: var(--light-background);
+  border: 2px solid var(--accent);
+  width: auto;
+
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+ 
+}
+
+.suggestion-item:hover {
+  background-color: var(--dark-background);
+  box-shadow: 0 0 7px var(--accent);
+  cursor: pointer;
+
+}
+
+
+.suggestion-item img {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+  
+
+}
+
+.browse-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.browse-more a {
+  color: var(--font-color);
+  text-decoration: none;
+  text-align: center;
+  font-weight:700;
+}
+
+.browse-more-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+@media (min-width: 75em) {
+  
+  .suggestions-dropdown {
+    left: 0;
+    right: 0;
+    width:100%;
+  }
+}
+
