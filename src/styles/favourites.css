@@ -1,0 +1,117 @@
+.page-favourites {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-favourites {
+  margin-top: 6rem;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.favourites-container {
+  max-width: 56rem;
+  width: 100%;
+  text-align: center;
+}
+
+.sad-flixi-icon {
+  width: 12rem;
+  height: auto;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.favourites-heading {
+  margin-bottom: 1rem;
+}
+
+.favourites-message {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.add-favourite-box {
+  width: 100%;
+  max-width: 200px;
+  height: 300px;
+  margin: 0 auto;
+  border: 2px dashed white;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.plus-icon {
+  font-size: 4rem;
+  color: white;
+  font-weight: 400;
+}
+
+/* ----- FAVOURITE RESULTS ----- */
+
+.fav-result-heading {
+  margin-top: 8rem;
+}
+
+.fav-result-grid {
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(1, 200px);
+  gap: 1rem;
+  justify-items: center;
+  justify-content: center;
+}
+
+/* TABLET */
+@media (min-width: 48em) {
+  .fav-result-grid {
+    grid-template-columns: repeat(auto-fit, 200px);
+
+    .grid-card img {
+      width: 200px;
+      height: 300px;
+    }
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 75em) {
+  .fav-result-grid {
+      grid-template-columns: repeat(auto-fit, 200px);
+      gap: 1;
+      justify-content: center;
+      justify-items: center;
+
+      .date {
+        text-align: left;
+      }
+
+      .rating-wrapper {
+        text-align: left;
+      }
+
+      .hero-description {
+        text-align: left;
+      }
+  }
+
+  .add-favourite-box {
+    transition: 0.4s;
+
+    &:hover {
+      text-shadow: 0 0 5px #fff;
+      box-shadow: 0 0 10px #fff;
+    }
+  }
+}
