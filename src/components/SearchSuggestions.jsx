@@ -1,6 +1,7 @@
 import { imageBaseUrl } from "../globals/globalVariables";
 import noPoster from "../assets/no-poster.png";
 import happyFlixi from "../assets/icons/happyflixi.svg";
+import { Link } from "react-router-dom";
 
 function SearchSuggestions({ suggestions, handleSuggestionClick, searchType }) {
 
@@ -17,7 +18,7 @@ function SearchSuggestions({ suggestions, handleSuggestionClick, searchType }) {
             
             <li className ="browse-more">
                 <img src={happyFlixi} alt="happy flixi robot" className="browse-more-icon" />
-                <a href ={`/search?query=${searchType}`}>Browse for more "{searchType}" movies</a>
+                <Link to={`/search?query=${searchType}`}>Browse for more "{searchType}" movies</Link>
             </li>
         </ul>
     );

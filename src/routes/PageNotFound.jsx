@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { appTitle } from "../globals/globalVariables";
 import "../styles/notfound.css";
 import sadFlixi from "../assets/icons/sad-flixi.svg";
+import { Link } from "react-router-dom";
 
 function PageNotFound() {
   useEffect(() => {
@@ -14,7 +15,7 @@ function PageNotFound() {
         <img src={sadFlixi} alt="Sad Flixi" className="sad-flixi" />
         <h1>404</h1>
         <p>The server cannot find the requested webpage</p>
-        <a href="/">Go back to homepage</a>
+        <Link to="/">Go back to homepage</Link>
       </section>
     </main>
   );
