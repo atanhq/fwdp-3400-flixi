@@ -1,38 +1,21 @@
-//importing useEffect and useState and our global variables
-
 import { useEffect, useState } from "react";
-import {
-  appTitle,
-  apiKey,
-  apiBaseUrl,
-  imageBaseUrl,
-} from "../globals/globalVariables";
-
-// importing components
+import { appTitle, apiKey, apiBaseUrl, imageBaseUrl } from "../globals/globalVariables";
 import MainHero from "../components/MainHero";
 import Filter from "../components/Filter";
 import Movie from "../components/Movie";
 import Loader from "../components/Loader";
-
-//importing Rating SVG
-import rating from "../assets/rating.svg";
-
-// Importing Swiper from https://swiperjs.com/react for the mobile movie carousel
-
+import rating from "../assets/icons/rating.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
-
-// favourites
 import isFav from "../utilities/isFav";
 import { useSelector } from "react-redux";
-
-// importing stylesheet for Page
 import "../styles/home.css";
 
 function PageHome() {
-  // States for Movies, Page, Filter, Active Movie for the mobile carousel, Initial Load for the loader and Hero Movies for the hero carousel
+  // States for Movies, Page, Filter, Active Movie for the mobile carousel
+  // Initial Load for the loader and Hero Movies for the hero carousel
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState("popular");
@@ -40,6 +23,7 @@ function PageHome() {
   const [initialLoad, setInitialLoad] = useState(true);
   const [heroMovies, setHeroMovies] = useState([]);
 
+  // favourites
   const favs = useSelector((state) => state.favs.items);
 
   useEffect(() => {
@@ -47,7 +31,6 @@ function PageHome() {
   }, []);
 
   // Fetching Movies From API, Filter as dependency.
-
   useEffect(() => {
     const fetchMovies = async () => {
       const options = {
@@ -139,6 +122,7 @@ function PageHome() {
                 ))}
               </Swiper>
             )}
+
             <div className="movie-title-mobile">
               <h3>{movies[activeMovie]?.title}</h3>
               <span className="rating-mobile-home">
@@ -149,9 +133,7 @@ function PageHome() {
             </div>
           </div>
 
-          {/* Grid for desktop and tablet */}
           <div className="movies-grid">
-            {/* only map movies where the poster Path exist  */}
             {movies.map(
               (movie) =>
                 movie.poster_path !== null && (
@@ -165,6 +147,7 @@ function PageHome() {
                 ),
             )}
           </div>
+
           <div className="view-more">
             <button className="pill-button active" onClick={viewMoreMovies}>
               View More

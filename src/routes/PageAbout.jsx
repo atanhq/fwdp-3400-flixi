@@ -23,9 +23,10 @@ const PageAbout = () => {
             Flixi is our loveable TV robot that loves movies! It travels far and
             wide in search of films and compiles them into a database to share
             with us humans. Users can log favorite movies, watch trailers, and
-            view ratings. All our resources are from TMDB.
+            view ratings.
           </p>
         </div>
+        
         <div className="about-api-use">
           <p>
             This product uses the TMDb API but is not endorsed or certified by

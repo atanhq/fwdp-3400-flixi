@@ -1,7 +1,5 @@
-/* About Page Styles */
 .page-about {
   min-height: 100vh;
-  background-color: var(--light-background);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,13 +9,12 @@
 .about-container {
   max-width: 37.5rem;
   width: 100%;
-  text-align: center;
 }
 
 .about-heading {
-  font-size: 2rem;
   margin-bottom: 2rem;
   margin-top: 4rem;
+  text-align: center;
 }
 
 .accent {

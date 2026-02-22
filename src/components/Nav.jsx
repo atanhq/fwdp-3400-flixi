@@ -1,17 +1,11 @@
-// top header for desktop; bottom nav for tablet/mobile
-// includes search bar
-// css, active state for search bar on click to activate
-
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import {apiKey, apiBaseUrl, imageBaseUrl} from "../globals/globalVariables";
-
+import {apiKey, apiBaseUrl} from "../globals/globalVariables";
 import homeIcon from "../assets/icons/home.svg";
 import searchIcon from "../assets/icons/search.svg";
 import favouritedIcon from "../assets/icons/favourited.svg";
 import infoIcon from "../assets/icons/info.svg";
 import logo from "../assets/icons/flixi-logo-cropped-nav.svg";
-//import closebtn from "../assets/icons/xmark.svg";
 import "../styles/nav.css";
 import SearchSuggestions from "./SearchSuggestions";
 
@@ -20,64 +14,55 @@ const Nav = () => {
   const navigate = useNavigate();
   const [searchOverlay, setSearchOverlay] = useState(false);
 
-  // using ref to spot clicks outside dropdown
   const dropdownHide = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-     if(dropdownHide.current && !dropdownHide.current.contains(e.target)) {
-       toggleDropdown(false);
-     }
-  };
+      if( dropdownHide.current && !dropdownHide.current.contains(e.target) ) {
+        toggleDropdown(false);
+      }
+    };
 
-  document.addEventListener("click", handleClickOutside);
- return () => document.removeEventListener("click", handleClickOutside);
-
-}, []);
-
-  // suggestion dropdown
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   const [suggestions, saveSuggestions] = useState([]);
   const [showDropdown, toggleDropdown] = useState(false);
 
-useEffect(() => {
+  useEffect(() => {
+    // doesn't give suggestions until at least 3 
+    // letters are typed
+    if(searchType.length < 3) {
+      toggleDropdown(false);
+      saveSuggestions([]);
+      return;
+    }
 
-  // doesn't give suggestions until at least 3 
-  // letters are typed
-  if(searchType.length < 3) {
-    toggleDropdown(false);
-    saveSuggestions([]);
-    return;
-  }
+    // doesn't allow api calls for each letter typed
+    // suggestions show after 150 milliseconds
+    const searchTimer = setTimeout(async () => {
+      const suggestionOptions = {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+      };
 
-  // doesn't allow api calls for each letter typed
-  // after 150 milliseconds thats when suggestions show
-  const searchTimer = setTimeout(async () => {
+      const suggestionResponse = await fetch(
+        `${apiBaseUrl}/search/movie?query=${searchType}`,
+        suggestionOptions
+      );
 
-    const suggestionOptions = {
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-    };
+      const suggestionData = await suggestionResponse.json();
 
-    const suggestionResponse = await fetch(
-      `${apiBaseUrl}/search/movie?query=${searchType}`,
-      suggestionOptions
-    );
+      // shows only 5 movie suggestions
+      saveSuggestions(suggestionData.results.slice(0, 5));
+      toggleDropdown(true);
+    }, 150);
 
-    const suggestionData = await suggestionResponse.json();
-
-    // shows only 5 movie suggestions
-    saveSuggestions(suggestionData.results.slice(0, 5));
-    toggleDropdown(true);
-  }, 150);
-
-  
-  return() => clearTimeout(searchTimer);
-
+    return() => clearTimeout(searchTimer);
   }, [searchType] );
-
 
   const submitSearch = (e) => {
     e.preventDefault();
@@ -104,9 +89,10 @@ useEffect(() => {
               <img className="nav-icon-mobile" src={homeIcon} alt="home icon" />
             </a>
           </li>
+
           <li>
             <button
-              className="mobile-button "
+              className="mobile-button"
               onClick={() => setSearchOverlay((prev) => !prev)}
             >
               <img
@@ -116,6 +102,7 @@ useEffect(() => {
               />
             </button>
           </li>
+
           <li>
             <a href="/favourites">
               <img
@@ -125,6 +112,7 @@ useEffect(() => {
               />
             </a>
           </li>
+
           <li>
             <a href="/about">
               <img
@@ -136,12 +124,13 @@ useEffect(() => {
           </li>
         </ul>
       </nav>
+
       {searchOverlay && (
         <>
           <div className="search-overlay">
             <div className="search-wrapper">
               <button
-                className="mobile-button "
+                className="mobile-button"
                 onClick={() => setSearchOverlay(false)}
               >
                 <svg
@@ -152,6 +141,7 @@ useEffect(() => {
                   <path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z" />
                 </svg>
               </button>
+
               <form onSubmit={submitSearch}>
                 <input
                   type="text"
@@ -163,12 +153,13 @@ useEffect(() => {
                   }}
                 />
               </form>
+
               {showDropdown && (
-              <SearchSuggestions
-              suggestions={suggestions}
-              handleSuggestionClick={handleSuggestionClick}
-              searchType={searchType}
-              />
+                <SearchSuggestions
+                  suggestions={suggestions}
+                  handleSuggestionClick={handleSuggestionClick}
+                  searchType={searchType}
+                />
               )}
             </div>
           </div>
@@ -184,6 +175,7 @@ useEffect(() => {
               <img className="nav-icon-logo" src={logo} alt="flixi logo" />
             </a>
           </li>
+
           <li className="search-li" ref={dropdownHide}>
             <form onSubmit={submitSearch} className="search-wrapper">
               <img className="search-icon" src={searchIcon} alt="search icon" />
@@ -195,14 +187,16 @@ useEffect(() => {
                 onChange={(e) => searchTypeUpdate(e.target.value)}
               />
             </form>
+
             {showDropdown && (
               <SearchSuggestions
-              suggestions={suggestions}
-              handleSuggestionClick={handleSuggestionClick}
-              searchType={searchType}
+                suggestions={suggestions}
+                handleSuggestionClick={handleSuggestionClick}
+                searchType={searchType}
               />
             )}
           </li>
+
           <li>
             <a href="/favourites">
               <img
@@ -212,6 +206,7 @@ useEffect(() => {
               />
             </a>
           </li>
+
           <li>
             <a href="/about">
               <img

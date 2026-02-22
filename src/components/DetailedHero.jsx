@@ -1,11 +1,10 @@
-// hero image, movie poster, info, genre tags (links to search)
-// trailer
 import { imageBaseUrl } from "../globals/globalVariables";
-import noPoster from '../assets/no-poster.png';
-import noBackdrop from '../assets/no-backdrop.png';
+import noPoster from "../assets/no-poster.png";
+import noBackdrop from "../assets/no-backdrop.png";
 
 function DetailedHero({ movie }) {
   if (!movie) return null;
+
   return (
     <>
       <div className="detailed-container">

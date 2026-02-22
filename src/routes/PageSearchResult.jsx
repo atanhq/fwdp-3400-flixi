@@ -1,19 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import {
-  appTitle,
-  apiKey,
-  apiBaseUrl,
-  imageBaseUrl,
-} from "../globals/globalVariables";
-import "../styles/base.css";
+import { appTitle, apiKey, apiBaseUrl, imageBaseUrl } from "../globals/globalVariables";
 import "../styles/search.css";
-
 import noPoster from "../assets/no-poster.png";
 import Loader from "../components/Loader";
 
 function PageSearchResult() {
-  // Use States and Search Params
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
   const [movies, setMovies] = useState([]);
@@ -52,7 +44,7 @@ function PageSearchResult() {
     }
   }, [query]);
 
-  // View More Movies Api Call
+  // View More Movies
   const viewMoreMovies = async () => {
     const options = {
       method: "GET",
@@ -85,12 +77,10 @@ function PageSearchResult() {
           <div className="search-result">
             {movies.map((movie) => (
               <Link key={movie.id} to={`/movie/${movie.id}`}>
-                {/* Display Movies - If movie does not have a poster_path, show noPoster image */}
-                <img
-                  src={
-                    movie.poster_path === null
-                      ? `${noPoster}`
-                      : `${imageBaseUrl}w200${movie.poster_path}`
+                <img src={
+                  movie.poster_path === null
+                    ? `${noPoster}`
+                    : `${imageBaseUrl}w200${movie.poster_path}`
                   }
                   alt={movie.title}
                   className="search-card"

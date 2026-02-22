@@ -1,11 +1,9 @@
-/* hover effect does not display on mobile/tablet */
 .movie-card-hover-info {
     display: none;
 }
 
-/* desktop */
+/* DESKTOP */
 @media (min-width: 75em) {
-
     .movie-card-hover-info {
         display: block;
         position: absolute;
@@ -57,7 +55,6 @@
         }
     }
 
-
     .movie-card-buttons-wrapper {
         display: flex;
         gap: 1rem;
@@ -77,11 +74,8 @@
         }
     }
 
-
     .movie-card-hover-info:hover {
-        
         opacity: 0.9;
         transform: scale(1);
     }
-
 }

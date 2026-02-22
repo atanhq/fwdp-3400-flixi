@@ -12,7 +12,7 @@
   --tablet-h1: 3rem;
   --mobile-h1: 1.5rem;
 
-  --desktop-h2: 3rem;
+  --desktop-h2: 2rem;
   --tablet-h2: 2rem;
   --mobile-h2: 1.5rem;
 }
@@ -22,30 +22,46 @@ body {
   font-family: var(--font-family);
   color: var(--font-color);
   line-height: 1.2rem;
+  letter-spacing: 1px;
 }
 
-h1,
+h1 {
+  font-weight: 700;
+  font-size: var(--mobile-h1);
+  line-height: 2rem;
+}
+
 h2 {
   font-weight: 700;
+  font-size: var(--mobile-h2);
 }
 
-.wrapper {
-  margin: 0 auto;
-  /* max-width: 80%; */
-  height: 100vh;
-  background-color: var(--light-background);
-}
-
-/* tablet */
+/* TABLET */
 @media (min-width: 48em) {
+  h1 {
+    font-size: var(--tablet-h1);
+  }
+
+  h2 {
+    font-size: var(--tablet-h2);
+  }
 }
 
-/* desktop */
+/* DESKTOP */
 @media (min-width: 75em) {
   .mobile-nav {
     display: none;
   }
+
   .desktop-nav {
     display: block;
+  }
+
+  h1 {
+    font-size: var(--desktop-h1);
+  }
+
+  h2 {
+    font-size: var(--desktop-h2);
   }
 }

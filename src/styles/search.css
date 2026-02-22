@@ -21,7 +21,6 @@
     text-align: center;
     margin: 1rem 0;
 
-    /* same as detailed.css */
     button {
         color: var(--font-color);
         background-color: var(--accent);
@@ -35,19 +34,15 @@
     }
 }
 
-
-/* tablet */
+/* TABLET */
 @media (min-width: 48em) {
-
     .search-result {
         grid-template-columns: repeat(3, 200px);
     }
-
 }
 
-/* desktop */
+/* DESKTOP */
 @media (min-width: 75em) {
-
     .search-result {
         grid-template-columns: repeat(4, 200px);
     }
@@ -61,5 +56,4 @@
             outline: 2px solid var(--accent);
         }
     }
-
 }

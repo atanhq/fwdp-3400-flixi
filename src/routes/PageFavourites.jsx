@@ -1,6 +1,4 @@
 import "../styles/favourites.css";
-import "../styles/movie-card.css";
-
 import sadFlixiIcon from "../assets/icons/sad-flixi.svg";
 import { useSelector } from "react-redux";
 import Movie from "../components/Movie";
@@ -30,14 +28,11 @@ const PageFavourites = () => {
             <p className="favourites-message">You don't have any favorites.</p>
 
             <div className="fav-result-grid">
-
-              {/* added .slice() to copy array then .reverse() to reverse the array
-              to show recent added fav movies */}
               {favs.slice().reverse().map((movie, i) => {
-                  return <Movie key={i} 
-                                movie={movie}
-                                cardType="grid-card"
-                                isFav={true} />
+                return <Movie key={i} 
+                              movie={movie}
+                              cardType="grid-card"
+                              isFav={true} />
               })}
 
               <div className="add-favourite-box">
@@ -49,7 +44,9 @@ const PageFavourites = () => {
           </div>
         ) : (
           <div className="fav-result">
-            <h1 className="fav-result-heading">Your Favourites</h1>
+            <h1 className="fav-result-heading">
+              Your <span className="accent">Favourites</span>
+            </h1>
 
             <div className="fav-result-grid">
               {favs.map((movie, i) => {
