@@ -1,13 +1,9 @@
-/*HOME PAGE MOBILE FIRST STYLES*/
-
 .home-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   animation: fadeIn 0.3s ease-in-out;
 }
-
-/* Hero Styles */
 
 .hero-carousel {
   width: 100%;
@@ -57,19 +53,16 @@
   text-align: center;
 }
 
-/* Movie title */
 .hero-title {
   font-size: var(--mobile-h1);
-  line-height: 2rem;
   margin: 0 0 1rem 0;
-  color: var(--font-color);
 }
 
 .hero-description {
   display: none;
+  font-size: 0.9rem;
 }
 
-/* More button */
 .hero-button {
   color: var(--font-color);
   background-color: var(--accent);
@@ -81,7 +74,6 @@
   font-size: 0.9rem;
 }
 
-/* Dots navigation */
 .slick-dots {
   margin-bottom: 3rem;
   z-index: 5;
@@ -103,36 +95,6 @@
   margin: 0 0.5rem;
 }
 
-.carousel-dots {
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0;
-  right: 0;
-  text-align: center;
-  z-index: 10;
-  padding: 0.5rem 0;
-  background-color: transparent;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-.dot {
-  height: 0.938rem;
-  width: 0.938rem;
-  margin: 0 0.315rem;
-  background-color: transparent;
-  border: 0.125rem solid rgb(255, 255, 255);
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #fff;
-  border: 0.125rem solid white;
-}
-
-/* Filter Section FOR MOBILE */
 .filter-container {
   display: flex;
   align-items: center;
@@ -143,11 +105,8 @@
 }
 
 .filter-label {
-  color: var(--font-color);
-  font-size: 1rem;
   text-transform: uppercase;
   font-weight: 700;
-  font-family: var(--font-family);
 }
 
 .filter-dropdown {
@@ -155,8 +114,6 @@
   color: var(--font-color);
   border: 1px solid var(--accent);
   padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-family: var(--font-family);
   border-radius: 2rem;
   cursor: pointer;
   text-transform: uppercase;
@@ -256,12 +213,12 @@
   display: none;
 }
 
-/* HOME PAGE TABLET AND UP */
-
+/* TABLET */
 @media (min-width: 48em) {
   .home-wrapper {
     margin-bottom: 3rem;
   }
+
   .hero-carousel {
     width: 100%;
     margin: 0;
@@ -273,7 +230,6 @@
   }
 
   .hero-title {
-    margin-bottom: 2rem;
     text-align: center;
   }
 
@@ -287,7 +243,6 @@
 
   .hero-description {
     display: block;
-    font-size: 1rem;
   }
 
   .hero-button-wrapper {
@@ -301,12 +256,6 @@
       background-color: transparent;
       outline: 2px solid var(--accent);
     }
-  }
-
-  .carousel-dots {
-    bottom: 1rem;
-    align-self: center;
-    width: 100%;
   }
 
   .view-more {
@@ -325,8 +274,6 @@
     }
   }
 
-  /* Desktop/tablet Filter 
-  */
   .filter-container {
     display: none;
   }
@@ -343,8 +290,6 @@
     color: var(--font-color);
     border: 2px solid var(--accent);
     padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    font-family: var(--font-family);
     border-radius: 2rem;
     cursor: pointer;
     text-transform: uppercase;
@@ -358,8 +303,6 @@
   .movies-container {
     display: none;
   }
-
-  /* Movie Grid tablet */
 
   .movies-grid {
     display: grid;
@@ -392,8 +335,8 @@
     display: block;
   }
 }
-/* DESKTOP STYLES*/
 
+/* DESKTOP */
 @media (min-width: 75em) {
   .hero-title-background {
     margin-left: 5rem;
@@ -426,10 +369,10 @@
 
   .pill-button {
     transition: 0.3s;
-  }
 
-  .pill-button:hover {
-    box-shadow: 0 0 5px var(--accent);
+    &:hover {
+      box-shadow: 0 0 5px var(--accent);
+    }
   }
 }
 

@@ -1,9 +1,16 @@
 .page-favourites {
   min-height: 100vh;
-  background-color: var(--light-background);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.no-favourites {
+  margin-top: 6rem;
+}
+
+.accent {
+  color: var(--accent);
 }
 
 .favourites-container {
@@ -20,16 +27,12 @@
 }
 
 .favourites-heading {
-  font-size: 2rem;
-  font-weight: 600;
   margin-bottom: 1rem;
-  color: white;
 }
 
 .favourites-message {
   font-size: 1.125rem;
-  color: white;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .add-favourite-box {
@@ -43,7 +46,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  order: -1; /* favourite box is on top */
 
   a {
     text-decoration: none;
@@ -56,8 +58,7 @@
   font-weight: 400;
 }
 
-
-/* ----- favourite results styling ----- */
+/* ----- FAVOURITE RESULTS ----- */
 
 .fav-result-heading {
   margin-top: 8rem;
@@ -72,32 +73,26 @@
   justify-content: center;
 }
 
-
-/* tablet */
+/* TABLET */
 @media (min-width: 48em) {
-
   .fav-result-grid {
-      grid-template-columns: repeat(3, 200px);
+    grid-template-columns: repeat(auto-fit, 200px);
 
-    /* overwrite tablet grid-card styling */
     .grid-card img {
       width: 200px;
       height: 300px;
     }
   }
-  
 }
 
-/* desktop */
+/* DESKTOP */
 @media (min-width: 75em) {
-
   .fav-result-grid {
       grid-template-columns: repeat(auto-fit, 200px);
       gap: 1;
       justify-content: center;
       justify-items: center;
 
-      /* overwrite styling */
       .date {
         text-align: left;
       }
@@ -119,5 +114,4 @@
       box-shadow: 0 0 10px #fff;
     }
   }
-
 }

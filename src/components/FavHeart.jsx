@@ -1,14 +1,12 @@
-import isFav from '../assets/icons/favourited.svg';
-import notFav from '../assets/icons/not-favourited.svg';
+import isFav from "../assets/icons/favourited.svg";
+import notFav from "../assets/icons/not-favourited.svg";
 
 function FavHeart({ movie, remove, handleFavClick }) {
 
-    // function to add to favourites
     function handleAddFav(){
         handleFavClick(true, movie);
     }
 
-    // function to remove from favourites
     function handleRemoveFav(){
         handleFavClick(false, movie);
     }
@@ -26,12 +24,10 @@ function FavHeart({ movie, remove, handleFavClick }) {
             }
         </>
     );
-
 }
 
 FavHeart.defaultProps = {
     remove: false
 }
-
 
 export default FavHeart;

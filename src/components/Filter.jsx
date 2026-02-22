@@ -1,5 +1,3 @@
-// home page filter
-
 function Filter({ currentFilter, updateFilter }) {
   const handleFilter = (current) => {
     updateFilter(current);
@@ -21,8 +19,6 @@ function Filter({ currentFilter, updateFilter }) {
         </select>
       </div>
 
-      {/* Filter Pills*/}
-
       <div className="filter-pills">
         <button
           className={
@@ -32,6 +28,7 @@ function Filter({ currentFilter, updateFilter }) {
         >
           Popular
         </button>
+
         <button
           className={
             "upcoming" === currentFilter ? "pill-button active" : "pill-button"
@@ -40,6 +37,7 @@ function Filter({ currentFilter, updateFilter }) {
         >
           Upcoming
         </button>
+
         <button
           className={
             "top_rated" === currentFilter ? "pill-button active" : "pill-button"

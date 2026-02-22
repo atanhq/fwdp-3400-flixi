@@ -1,20 +1,17 @@
-/* ----------- DETAILED HERO IMAGES ----------- */
+/* ----- MOVIE DETAILS HERO ----- */
 
 .detailed-container {
   position: relative;
   width: 100vw;
   height: 30rem;
 
-  /* top header height */
   margin-top: 3.5rem;
 }
 
 .detailed-hero {
   width: 100vw;
   max-height: 15rem;
-  background-color: var(--light-background);
 
-  /* https://stackoverflow.com/questions/44673676/how-to-add-color-overlay-on-an-image */
   &:before {
     content: "";
     position: absolute;
@@ -36,7 +33,6 @@
   width: 200px;
   height: 300px;
   aspect-ratio: 2 / 3;
-  background-color: aliceblue;
   top: 20%;
   left: 50%;
   transform: translate(-50%, 0);
@@ -44,22 +40,19 @@
   box-shadow: 0 0 20px var(--dark-background);
 }
 
-/* ----------- DETAILED MOVIE INFO ----------- */
-
-.wrapper {
-  width: 100%;
-  height: auto;
-}
+/* ----- MOVIE DETAILS INFO ----- */
 
 .detailed-info {
   padding: 1rem;
-  margin-top: 12rem;
+  margin-top: 10rem;
 
   .summary {
-    line-height: 1.25rem;
-    letter-spacing: 1.1px;
-    font-size: 0.9rem;
     padding: 1rem 0;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
   }
 }
 
@@ -70,9 +63,7 @@
   align-items: center;
   justify-content: center;
 
-
   h1 {
-    line-height: 2rem;
     text-align: center;
   }
 
@@ -85,6 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
 
   .rating-svg {
     width: 1.3rem;
@@ -138,14 +130,12 @@
   }
 }
 
-/* ----------- DETAILED MOVIE TRAILER----------- */
+/* ----- MOVIE TRAILER ----- */
 
 .detailed-trailer {
   width: 90vw;
   display: block;
   margin: 0 auto;
-
-  /* separate from bottom nav height */
   margin-bottom: 5rem;
 }
 
@@ -168,10 +158,16 @@
   }
 }
 
-/* tablet */
+iframe.trailer {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: none;
+  border: none;
+}
+
+/* ----- TABLET ----- */
+
 @media (min-width: 48em) {
-
-
   .detailed-container {
     height: 40rem;
   }
@@ -197,13 +193,14 @@
     width: 60%;
     max-width: 50rem;
     position: absolute;
-    top: 6rem;
+    top: 8rem;
     left: 15%;
     margin-left: 10rem;
     z-index: 99;
 
     h1 {
       text-align: left;
+      font-size: 2rem;
     }
   }
 
@@ -227,7 +224,8 @@
 
   .rating-date {
     justify-content: left;
-    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
 
     .favourite-button-wrapper-mobile {
       display: none;
@@ -242,13 +240,8 @@
     }
   }
 
-  /* https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css */
   .summary {
     overflow: hidden;
-    /* display: -webkit-box;
-    -webkit-line-clamp: 3; 
-    line-clamp: 3; */
-    -webkit-box-orient: vertical;
   }
 
   .genre-tags {
@@ -262,7 +255,8 @@
   }
 }
 
-/* desktop */
+/* ----- DESKTOP ----- */
+
 @media (min-width: 75em) {
   .detailed-info {
     max-width: 75rem;
@@ -273,14 +267,3 @@
     margin: 1rem 0;
   }
 }
-
-/* Youtube Container */
-iframe.trailer {
-  width: 100%;
-  aspect-ratio: 16/9;
-  max-height: none;
-  border: none;
-}
-
-
-
